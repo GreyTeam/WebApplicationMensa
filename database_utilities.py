@@ -3,7 +3,7 @@ import json
 
 def __load_db():
     if os.path.isfile('prenotazioni.json'):
-        db = json.load("prenotazioni.json")
+        db = json.load(open("prenotazioni.json", "r"))
     
     else: 
         db = ""
