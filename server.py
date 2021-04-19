@@ -1,4 +1,6 @@
 import flask
+import responses
+import database_utilities
 
 # Setup server
 app = flask.Flask(__name__)
@@ -7,26 +9,42 @@ app.config["DEBUG"] = True
 # Home
 @app.route('/', methods=['GET'])
 def home():
-    with open("index.html") as f:
-        return str(f.read())
+    return open("index.html").read()
 
 # CSS
 @app.route('/index.css', methods=['GET'])
 def css():
-    with open("index.css") as f:
-        return str(f.read())
+    return open("index.css").read()
 
 # JS
 @app.route('/index.js', methods=['GET'])
 def js():
-    with open("index.js") as f:
-        return str(f.read())
+    return open("index.html").read()
 
 # Prenota
 @app.route("/prenota", methods=['POST'])
 def prenota():
-    firstname = str(flask.request.form.get("firstname"))
-    lastname = str(flask.request.form.get("lastname"))
+
+    # Controllo se la richiesta soddisfa i requisiti
+    firstname = flask.request.headers.get("firstname")
+    print(firstname)
+    if firstname is None:
+        # Ritorno l'errore
+        return responses.missingElementsResponse
+
+    lastname = flask.request.headers.get("lastname")
+    print(lastname)
+    if lastname is None:
+        # Ritorno l'errore
+        return responses.missingElementsResponse
+
+    # Aggiungo al database la prenotazione
+    database_utilities.append_user({
+        "nome": firstname,
+        "cognome": lastname
+    })
+
+    # Ritorno OK al client
     return {
         "result": "OK",
         "firstname": firstname,
