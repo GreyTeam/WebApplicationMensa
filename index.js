@@ -1,8 +1,11 @@
 $(document).ready(function () {
 	$('#button').click(function () {
+		let data = {};
+		data.nome = document.getElementById("fname").value;
+		data.cognome = document.getElementById("lname").value;
 		$.post(
-			"/prenota", function (result) {
-				console.log(result);
+			"/prenota", data, function (result) {
+				console.log(data);
 			}
 		)
 	})
