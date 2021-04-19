@@ -21,6 +21,6 @@ def js():
 @app.route("/prenota", methods=['POST'])
 def prenota():
     print("Arrived")
-    return ""
+    return "Prenotato"
 
 app.run()
