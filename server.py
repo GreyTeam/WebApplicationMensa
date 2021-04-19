@@ -1,6 +1,7 @@
 import flask
 import responses
 import database_utilities
+import dates
 
 # Setup server
 app = flask.Flask(__name__)
@@ -14,12 +15,13 @@ def home():
 # CSS
 @app.route('/index.css', methods=['GET'])
 def css():
+    print("CSS")
     return open("index.css").read()
 
 # JS
 @app.route('/index.js', methods=['GET'])
 def js():
-    return open("index.html").read()
+    return open("index.js").read()
 
 # Prenota
 @app.route("/prenota", methods=['POST'])
@@ -50,5 +52,15 @@ def prenota():
         "firstname": firstname,
         "lastname": lastname
     }
+
+@app.route("/prenota/date", methods=['POST'])
+def date():
+    dates_list = dates.create_days_list()
+    print(dates_list)
+    return {
+        "number_of_dates": len(dates_list),
+        "dates": dates_list
+    } 
+
 
 app.run()

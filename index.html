@@ -1,68 +1,16 @@
 <html>
-<head>
-	<title> MENSA </title>
-	<link rel="stylesheet" href="index.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-	
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>MENSA</title>
+        <link rel="stylesheet" href="index.css">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script src="index.js"></script>    
+    </head>
+    <body>
 
+        <h1>PRENOTA IL TUO PASTO!</h1>
+        <select id="dates"></select><br>
+        <button id="submit" style="width: 100px; height: 100px">PRENOTA</button>
 
-<body>
-
-<div class="booking-form-box">
-	
-	<div class="radio-btn">
-	
-	<input type="radio" class="btn" name="check" checked="checked">
-	
-	<span>Roundtrip</span>
-	
-	<input type="radio" class="btn" name="check"><span>One Way</span>	 
-	<input type="radio" class="btn" name="check"><span>Multy-city</span>	 
-	
-	</div>
-
-<div class="booking-form">
-	<label>Flying From</label>
-<input type="text" class="form-control" placeholder="City or Airport">
-
-	<label>Flying To</label>
-<input type="text" class="form-control" placeholder="City or Airport">
-
-<div class="input-grp">
-	<label>Departing</label>
-	<input type="date" class="form-control select-date">
-</div>
-
-<div class="input-grp">
-	<label>Returning</label>
-	<input type="date" class="form-control select-date">
-</div>
-
-<div class="input-grp">
-	<label>Adults</label>
-	<input type="number" class="form-control" value="1" >
-</div>
-
-<div class="input-grp">
-	<label>Childre</label>
-	<input type="number" class="form-control" value="0" >
-</div>
-
-<div class="input-grp">
-	<label>Travel Class</label>
-<select class="custom-select">
-	<option value="1">Economy Class</option>
-	<option value="1">Business Class</option>
-</select>
-</div>
-
-<div class="input-grp">
-<button type="button" class="btn btn-primary flight">Show Flights</button>
-</div> 
-</div>
-</div>
-
-</body>
-
+    </body>
 </html>
