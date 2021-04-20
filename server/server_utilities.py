@@ -1,4 +1,4 @@
-import responses
+import server.responses
 import flask
 
 def verify_header_exist(header):

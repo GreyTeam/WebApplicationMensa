@@ -1,4 +1,4 @@
-from database_utilities import *
+from server.database_utilities import *
 
 """
 totale: int

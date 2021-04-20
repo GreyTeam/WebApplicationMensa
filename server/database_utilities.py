@@ -2,8 +2,8 @@ import os.path
 import json
 import datetime
 
-prenotazioni_file_path = 'prenotazioni.json'
-login_file_path = 'login.json'
+prenotazioni_file_path = 'data/prenotazioni.json'
+login_file_path = 'data/login.json'
 
 def load_db(db_filename):
     

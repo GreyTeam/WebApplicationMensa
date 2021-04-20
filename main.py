@@ -1,8 +1,8 @@
 import flask
-import responses
-import database_utilities
-import server_utilities
-import dates
+import server.responses
+import server.database_utilities
+import server.server_utilities
+import utilities.dates
 
 # Setup server
 app = flask.Flask(__name__)
