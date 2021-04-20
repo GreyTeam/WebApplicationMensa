@@ -23,21 +23,22 @@ def add_user(data):
         "keys": [data["key"]]
     }
 
-def search_account(key):
+def search_user(key):
     db = load_db(login_file_path)
     for user in db["users"]:
-        for key in user["keys"]:
-            return user
+        for user_key in user["keys"]:
+            if user_key == key:
+                return user
     return None
 
-def get_account_information(key):
+def user_exist(key):
     db = load_db(login_file_path)
     for user in db["users"]:
         for key in user["keys"]:
             return True
     return None
 
-def add_account(data):
+def add_user(data):
     db = load_db(login_file_path)
     for i, user in enumerate(db["users"]):
         if user["email"] == data["email"]:
@@ -45,6 +46,10 @@ def add_account(data):
                 db["users"][i]["keys"].append(data["key"])
                 save_db(db, login_file_path)
             return
-    db["users"].append(add_user(data))
+
+    data["keys"] = [data["key"]]
+    data.pop("key")
+
+    db["users"].append(data)
     db["totale"] += 1
     save_db(db, login_file_path)
