@@ -1,6 +1,7 @@
 import flask
 import responses
 import database_utilities
+import server_utilities
 import dates
 
 # Setup server
@@ -28,22 +29,28 @@ def js():
 def prenota():
 
     # Controllo se la richiesta soddisfa i requisiti
-    firstname = flask.request.headers.get("firstname")
-    print(firstname)
-    if firstname is None:
-        # Ritorno l'errore
+    if not server_utilities.verify_header_exist("firstname"):
         return responses.missingElementsResponse
+    else:
+        firstname = server_utilities.get_header("firstname")
 
-    lastname = flask.request.headers.get("lastname")
-    print(lastname)
-    if lastname is None:
-        # Ritorno l'errore
+    if not server_utilities.verify_header_exist("lastname"):
         return responses.missingElementsResponse
+    else:
+        lastname = server_utilities.get_header("lastname")
+
+    if not server_utilities.verify_header_exist("date"):
+        return responses.missingElementsResponse
+    else:
+        date = server_utilities.get_header("date")
+        if not dates.verify_date(date):
+            return responses.invalidDateResponse
 
     # Aggiungo al database la prenotazione
     database_utilities.append_user({
         "nome": firstname,
-        "cognome": lastname
+        "cognome": lastname,
+        "date": date
     })
 
     # Ritorno OK al client

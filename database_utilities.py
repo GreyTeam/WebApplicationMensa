@@ -1,9 +1,11 @@
 import os.path
 import json
 
+prenotazioni_file_path = 'prenotazioni.json'
+
 def __load_db():
-    if os.path.isfile('prenotazioni.json'):
-        db = json.load(open("prenotazioni.json", "r"))
+    if os.path.isfile(prenotazioni_file_path):
+        db = json.load(open(prenotazioni_file_path, "r"))
     
     else: 
         db = ""
@@ -16,7 +18,7 @@ def __load_db():
     return db
 
 def __save_db(db):
-    json.dump(db, open("prenotazioni.json", "w"), indent=4)
+    json.dump(db, open(prenotazioni_file_path, "w"), indent=4)
 
 def append_user(data):
     db = __load_db()
