@@ -69,5 +69,20 @@ def date():
         "dates": dates_list
     } 
 
+@app.route("/login", methods=['POST'])
+def login():
+    
+    if not server_utilities.verify_header_exist("key"):
+        return responses.missingElementsResponse
+    else:
+        key = server_utilities.get_header("key")
+
+    if not server_utilities.verify_header_exist("email"):
+        return responses.missingElementsResponse
+    else:
+        email = server_utilities.get_header("email")
+
+    
+
 
 app.run()
