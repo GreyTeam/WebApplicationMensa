@@ -111,6 +111,23 @@ def run_routes():
             "result": "OK"
         }
 
+    @app.route('/chronology', methods=['POST'])
+    def chronology():
+        if not server_utilities.header_exist("key"):
+            return responses.missing_element_response("key")
+        else:
+            key = server_utilities.get_header("key")
+
+        user = users.search_user(key)
+
+        if user is None:
+            return responses.key_doesnt_exist()
+
+        return {
+            "result": "OK",
+            "chronology": prenotazioni.check_user_reservations(user["email"])
+        }
+
     @app.route('/resource/<resource>', methods=['GET'])
     def res(resource):
         if os.path.isfile(f"resources/{resource}"):
