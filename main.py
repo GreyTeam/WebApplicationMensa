@@ -9,13 +9,13 @@ app.config["DEBUG"] = True
 # Home
 @app.route('/', methods=['GET'])
 def home():
-    return open("resources/index.html").read()
+    return open("resources/index_login.html").read()
 
 # CSS
-@app.route('/index.css', methods=['GET'])
+@app.route('/style_login.css', methods=['GET'])
 def css():
     print("CSS")
-    return open("resources/index.css").read()
+    return open("resources/style_login.css").read()
 
 # JS
 @app.route('/index.js', methods=['GET'])
