@@ -1,8 +1,7 @@
 import flask
 import server.responses
-import server.database_utilities
-import server.server_utilities
-import utilities.dates
+from server import database_utilities, server_utilities
+from utilities import dates
 
 # Setup server
 app = flask.Flask(__name__)
@@ -11,18 +10,18 @@ app.config["DEBUG"] = True
 # Home
 @app.route('/', methods=['GET'])
 def home():
-    return open("index.html").read()
+    return open("resources/index.html").read()
 
 # CSS
 @app.route('/index.css', methods=['GET'])
 def css():
     print("CSS")
-    return open("index.css").read()
+    return open("resources/index.css").read()
 
 # JS
 @app.route('/index.js', methods=['GET'])
 def js():
-    return open("index.js").read()
+    return open("resources/index.js").read()
 
 # Prenota
 @app.route("/prenota", methods=['POST'])
