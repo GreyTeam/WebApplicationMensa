@@ -1,6 +1,5 @@
 import flask
-import server.responses
-from server import database_utilities, server_utilities
+from server import database_utilities, server_utilities, responses
 from utilities import dates
 
 # Setup server

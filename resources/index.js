@@ -20,7 +20,7 @@ $(document).ready(function () {
 		data.cognome = document.getElementById("lname").value;
 		$.post(
 			"/prenota", data, function (result) {
-				print(result)
+				console.log(result)
 			}
 		)
 	})
