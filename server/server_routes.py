@@ -13,7 +13,7 @@ def run_routes():
 
     @app.route('/', methods=['GET'])
     def home():
-        return open(f"resources/index.html").read()
+        return open(f"resources/index_login.html").read()
 
     # Prenota
     @app.route("/prenota", methods=['POST'])
@@ -65,7 +65,7 @@ def run_routes():
 
     @app.route("/login", methods=['POST'])
     def login():
-        
+        print(flask.request.headers)
         if not server_utilities.header_exist("key"):
             return responses.missing_element_response("key")
         else:
@@ -128,16 +128,19 @@ def run_routes():
             "chronology": prenotazioni.check_user_reservations(user["email"])
         }
 
-    @app.route('/resource/<resource>', methods=['GET'])
+    @app.route('/<resource>', methods=['GET'])
     def res(resource):
-        if os.path.isfile(f"resources/{resource}"):
-            return open(f"resources/{resource}").read()
+        if os.path.isfile(f"resources/{str(resource)}"):
+            if ".html" in resource or ".css" in resource or ".js" in resource:
+                return open(f"resources/{resource}").read()
+            else:
+                return open(f"resources/{resource}", "rb").read()
         else:
             return {
                 "result": "ERROR",
                 "message": "Resource doesn't exist in the server"
             }
 
-    app.run()
+    app.run(host="0.0.0.0")
         
 
