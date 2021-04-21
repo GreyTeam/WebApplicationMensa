@@ -20,6 +20,7 @@ def key_doesnt_exist():
 def reservation_already_registered(date):
     return {
         "result": "ERROR",
-        "message": f"A reservation for the date {date} is already registered"
+        "message": f"A reservation for the date {date} is already registered",
+        "date": date
     }
 

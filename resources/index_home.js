@@ -34,7 +34,11 @@ $(document).ready(function () {
                     document.cookie = "key=" + key;
                     window.location.replace("index_home.html");
                 }
-                else alert(result.message)
+                else 
+                    if (result.message == "A reservation for the date " + result.date + " is already registered")
+                        alert("Attenzione, una prenotazione per la data " + result.date + " e' gia' stata registrata")
+                    else    
+                        alert(result.message)
             }
         })
 	})
