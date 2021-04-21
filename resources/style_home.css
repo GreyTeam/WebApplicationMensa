@@ -59,20 +59,32 @@ body{
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0); 
-  backdrop-filter: blur(10px);
   text-align: center;
+  font-size: 17px;
+  font-style: High-School;
   border: 2px solid #FFFFFF;
   border-radius: 30px;
   outline: none;
   color:white;
   transition: 0.25s;
   cursor: pointer;
-
-
+  width: Auto;
+ 
 }
 
 .box input[type = "elenco"]:hover{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
+  
 }
+
+
+.option{
+    margin:40px;
+    background: black;
+    color:#ffffff;
+	backdrop-filter: blur(2.5px);
+
+}
+

@@ -8,6 +8,7 @@ $(document).ready(function () {
 				option = document.createElement("option")
 				option.text = result.dates[i].text
 				option.value = result.dates[i].value
+				option.classList.add("option")
 				select.add(option)
 			}
 		}
