@@ -36,7 +36,7 @@ def run_routes():
         user = users.search_user(key)
 
         if user is not None:
-            if prenotazioni.check_user_reservations(user["email"]):
+            if prenotazioni.check_date_reservations(user["email"], date):
                 return responses.reservation_already_registered(date)
             else:
                 database_utilities.append_user({

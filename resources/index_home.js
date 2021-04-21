@@ -34,7 +34,7 @@ $(document).ready(function () {
                     document.cookie = "key=" + key;
                     window.location.replace("index_home.html");
                 }
-                else console.log("Errore")
+                else alert(result.message)
             }
         })
 	})

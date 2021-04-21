@@ -20,7 +20,7 @@ def get_day_list():
             p_list.append(p)
     return p_list
 
-def check_day_reservations(email, data):
+def check_date_reservations(email, data):
     db = load_db(prenotazioni_file_path)
     for p in db["prenotazioni"]:
         if p["email"] == email and p["date"] == data:
