@@ -20,16 +20,15 @@ def run_routes():
     def prenota():
 
         # Controllo se la richiesta soddisfa i requisiti
-        print("Arrivato")
         if not server_utilities.header_exist("key"):
             return responses.missing_element_response("key")
         else:
             key = server_utilities.get_header("key")
 
-        if not server_utilities.header_exist("date"):
-            return responses.missing_element_response("date")
+        if not server_utilities.header_exist("x-date"):
+            return responses.missing_element_response("x-date")
         else:
-            date = server_utilities.get_header("date")
+            date = server_utilities.get_header("x-date")
             if not dates.verify_date(date):
                 return responses.invalid_date_response()
 
@@ -37,7 +36,7 @@ def run_routes():
         user = users.search_user(key)
 
         if user is not None:
-            if prenotazioni.check_reservation(user["email"], date):
+            if prenotazioni.check_user_reservations(user["email"]):
                 return responses.reservation_already_registered(date)
             else:
                 database_utilities.append_user({
@@ -65,7 +64,6 @@ def run_routes():
 
     @app.route("/login", methods=['POST'])
     def login():
-        print(flask.request.headers)
         if not server_utilities.header_exist("key"):
             return responses.missing_element_response("key")
         else:

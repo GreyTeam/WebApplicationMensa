@@ -59,8 +59,10 @@ function registration(data, key) {
         },
         dataType:"json",
         success: function (result) {
-            if (result.result == "OK")
+            if (result.result == "OK") {
+                document.cookie = "key=" + key + " path=/;";
                 window.location.replace("index_home.html");
+            }
             else console.log("Errore")
         }
     })
