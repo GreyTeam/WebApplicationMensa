@@ -1,18 +1,18 @@
-$(document).ready(function () {
+$.post(
+    "/prenota/date", function(result) {
+        console.log(result)
+        select = document.getElementById("dates")
+        for (let i = 0; i < result.number_of_dates; i++) {
+            option = document.createElement("option")
+            option.text = result.dates[i].text
+            option.value = result.dates[i].value
+            option.classList.add("option")
+            select.add(option)
+        }
+    }
+)
 
-	$.post(
-		"/prenota/date", function(result) {
-			console.log(result)
-			select = document.getElementById("dates")
-			for (let i = 0; i < result.number_of_dates; i++) {
-				option = document.createElement("option")
-				option.text = result.dates[i].text
-				option.value = result.dates[i].value
-				option.classList.add("option")
-				select.add(option)
-			}
-		}
-	)
+$(document).ready(function () {
 
 	$("#submit").click(function () {
 		date = document.getElementById("dates").value;
@@ -41,6 +41,10 @@ $(document).ready(function () {
                         alert(result.message)
             }
         })
+	})
+
+    $("#chronology").click(function () {
+        window.location.replace("index_storico.html");
 	})
 })
 

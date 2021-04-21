@@ -32,6 +32,6 @@ def check_user_reservations(email):
     reservations = []
     for p in db["prenotazioni"]:
         if p["email"] == email:
-            reservations.append(p)
+            reservations.append(p["date"])
         
     return reservations
