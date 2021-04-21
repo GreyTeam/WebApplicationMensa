@@ -88,12 +88,25 @@ table {
 }
 
 td, th {
-  border: 1px solid #dddddd;
+  border-bottom: 2px solid #dddddd;
+  
   text-align: left;
   padding: 8px;
 }
-/*
-tr:nth-child(even) {
-  background-color: #ffffff;
+
+.box2 {
+	
+  border-width: 2px;
+  width: 280;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  
+  text-align: center;
+  border-radius: 20px;
+  border-color: white;
 }
-*/
+
+/*                                       HAI CACATO?
