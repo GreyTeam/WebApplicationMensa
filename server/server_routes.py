@@ -78,7 +78,7 @@ def run_routes():
             else:
                 return responses.key_doesnt_exist()
 
-    @app.route("/register", methods=['POST'])
+    @app.route("/registration", methods=['POST'])
     def register():
         if not server_utilities.header_exist("nome"):
             return responses.missing_element_response("nome")
