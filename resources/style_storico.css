@@ -36,16 +36,17 @@ body{
   border:0;
   background: none;
   margin: auto;
-  text-align: center;
+  text-align: left;
   font-family: High-School;
   border: 2px solid #FFFFFF;
-  padding: 20px 70px;
+  padding: 20px 52px;
   outline: none;
   color: white;
   border-radius: 30px;
   transition: 0.25s;
   cursor: pointer;
-    margin-top: 35px;
+  margin-top:200px;
+
 }
 
 .box input[type = "submit"]:hover{
@@ -78,6 +79,8 @@ body{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
+  margin-top: 50px;
+
 }
 
 
@@ -88,14 +91,17 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 200px;
 }
 
 th {
   border-bottom: 2px solid #dddddd;
   text-align: center;
   padding: 8px;
+  max-width:67%;
 }
+
+
 
 .cell{
 	
@@ -103,21 +109,24 @@ th {
 	border-bottom: 2px solid #dddddd;
     text-align: center;
     padding: 8px;
+	width: 2%
+	
 	
 }
 
 .box2 {
-	
+
+  margin-top: 100px;
   border-width: 2px;
-  width: 280;
+  width: 300;
   padding: 30px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  
   text-align: center;
   border-radius: 20px;
   border-color: white;
+  margin-bottom: 50px;
 }
 
