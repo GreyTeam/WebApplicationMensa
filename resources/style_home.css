@@ -97,6 +97,7 @@ img.avatar {
   border-radius: 50%;
 }
 
-.username{
+.box h4{
 	color: white;
+  font-family: High-School;
 }

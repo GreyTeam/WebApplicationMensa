@@ -1,48 +1,44 @@
 $(document).ready(function () {
-   
-    key = getCookie("key"),
 
-    $.ajax({
-        url:"/chronology",
-        type:"POST",
-        headers: { 
-            "Accept" : "application/json; charset=utf-8",
-            "Content-Type": "application/json; charset=utf-8",
-            "key": key
-        },
-        dataType:"json",
-        success: function(result) {
-
-            if (result.result == "OK") {
-                console.log(result.chronology)
-                table = document.getElementById("table")
-                for (let i = 0; i < result.chronology.length; i++) {
-                    var tr = document.createElement('tr');
-
-                    var td = document.createElement('td');
-                    td.innerText = result.chronology[i];
-                    td.classList.add("cell");
-
-                    var tstatus = document.createElement('td');
-                    status = getStatus(result.chronology[i]);
-                    console.log(status)
-                    tstatus.innerText = status;
-                    tstatus.classList.add("cell");
-                    
-                    tr.appendChild(td);
-                    tr.appendChild(tstatus);
-                    table.appendChild(tr);
-                }
-            }
-            else console.log(result.message)
-		}
-    })
-
-
-
-    $("#return").click(function () {
+    $("#back").click(function () {
         window.location.replace("index_home.html");
 	})
+})
+
+$.ajax({
+    url:"/chronology",
+    type:"POST",
+    headers: { 
+        "Accept" : "application/json; charset=utf-8",
+        "Content-Type": "application/json; charset=utf-8",
+        "key": getCookie("key"),
+    },
+    dataType:"json",
+    success: function(result) {
+
+        if (result.result == "OK") {
+            console.log(result.chronology)
+            table = document.getElementById("table")
+            for (let i = 0; i < result.chronology.length; i++) {
+                var tr = document.createElement('tr');
+
+                var td = document.createElement('td');
+                td.innerText = result.chronology[i];
+                td.classList.add("cell");
+
+                var tstatus = document.createElement('td');
+                status = getStatus(result.chronology[i]);
+                console.log(status)
+                tstatus.innerText = status;
+                tstatus.classList.add("cell");
+                
+                tr.appendChild(td);
+                tr.appendChild(tstatus);
+                table.appendChild(tr);
+            }
+        }
+        else console.log(result.message)
+    }
 })
 
 function getCookie(name) {
@@ -50,8 +46,7 @@ function getCookie(name) {
     ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) {
-        string = parts.pop().split(';').shift()
-        return string.slice(0, string.length - 7)
+        return parts.pop().split(';').shift()
     }
 }
 

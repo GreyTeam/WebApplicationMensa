@@ -7,6 +7,7 @@ function onSignIn(googleUser) {
 }
 
 function registration(data, key) {
+    console.log(key);
     $.ajax({
         url:"/registration",
         type:"POST",
@@ -23,7 +24,7 @@ function registration(data, key) {
         success: function (result) {
             console.log(result)
             if (result.result == "OK") {
-                document.cookie = "key=" + key + " path=/;";
+                setCookie("key", key, "")
                 window.location.replace("index_home.html");
             }
             else console.log("Errore")
@@ -42,9 +43,6 @@ function renderButton() {
     });
 }
 
-function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + ";max-age=" + 30*24*60*60; + ";path=/";
 }
