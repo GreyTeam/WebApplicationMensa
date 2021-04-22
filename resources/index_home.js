@@ -48,6 +48,27 @@ $(document).ready(function () {
 	})
 })
 
+$.ajax({
+	url:"/user/info",
+	type:"POST",
+	headers: { 
+		"Accept" : "application/json; charset=utf-8",
+		"Content-Type": "application/json; charset=utf-8",
+		"key": key
+	},
+	dataType:"json",
+	success: function (result) {
+		if (result.result = "OK") {
+			document.getElementById("username").innerText = result.fullname;
+			document.getElementById("userimage").src = result.profile_pic;
+		}
+		else console.log(result.message);
+		
+	}
+})
+
+
+
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
@@ -57,3 +78,4 @@ function getCookie(name) {
         return string
     }
 }
+
