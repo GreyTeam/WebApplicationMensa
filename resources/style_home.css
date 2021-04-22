@@ -77,7 +77,7 @@ body{
   margin-top: 35px;
 =======
   margin-top: 30px;
->>>>>>> main
+  position: relative;
 }
 
 .prenota{
@@ -94,6 +94,7 @@ body{
   transition: 0.25s;
   cursor: pointer;
   margin-top: 25px;
+position: relative;
 
 }
 .esci input[type = "submit"]:hover{
