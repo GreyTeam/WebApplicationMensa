@@ -34,7 +34,7 @@ body{
 .box input[type = "submit"]{
   border:0;
   background: none;
-  margin: auto;
+  margin: left;
   text-align: center;
   font-family: High-School;
   border: 2px solid #FFFFFF;
