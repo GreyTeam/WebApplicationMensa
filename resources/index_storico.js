@@ -59,7 +59,7 @@ function isToday(date) {
     parsedDate = parseDate(date);
     console.log(currentDate);
     console.log(parsedDate);
-    return currentDate.getDay() == parsedDate.getDay();
+    return currentDate.getDate() == parsedDate.getDate();
 }
 
 function getStatus(date) {

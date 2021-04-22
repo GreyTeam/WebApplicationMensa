@@ -3,6 +3,7 @@ import json
 
 os.mkdir("data")
 os.chdir("data")
+os.mkdir("prev_tables")
 
 json.dump({
     "totale": 0,
