@@ -48,6 +48,8 @@ $(document).ready(function () {
 	})
 })
 
+key = getCookie("key");
+
 $.ajax({
 	url:"/user/info",
 	type:"POST",
@@ -59,8 +61,13 @@ $.ajax({
 	dataType:"json",
 	success: function (result) {
 		if (result.result = "OK") {
+            console.log(result)
 			document.getElementById("username").innerText = result.fullname;
-			document.getElementById("userimage").src = result.profile_pic;
+            searchPic = new Image();
+            searchPic.src = result.profile_pic;
+            console.log(searchPic);
+            var _img = document.getElementById('userimage');
+            _img.src = searchPic.src;
 		}
 		else console.log(result.message);
 		
