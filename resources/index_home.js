@@ -12,6 +12,32 @@ $.post(
     }
 )
 
+key = getCookie("key");
+console.log(key)
+
+$.ajax({
+	url:"/user/info",
+	type:"POST",
+	headers: { 
+		"Accept" : "application/json; charset=utf-8",
+		"Content-Type": "application/json; charset=utf-8",
+		"key": key
+	},
+	dataType:"json",
+	success: function (result) {
+		if (result.result == "OK") {
+            console.log(result)
+			document.getElementById("username").innerText = result.fullname;
+            searchPic = new Image();
+            searchPic.src = result.profile_pic;
+            console.log(searchPic);
+            var _img = document.getElementById('userimage');
+            _img.src = searchPic.src;
+		}
+		else console.log(result.message);
+	}
+})
+
 $(document).ready(function () {
 
 	$("#submit").click(function () {
@@ -48,39 +74,12 @@ $(document).ready(function () {
 	})
 })
 
-key = getCookie("key");
-
-$.ajax({
-	url:"/user/info",
-	type:"POST",
-	headers: { 
-		"Accept" : "application/json; charset=utf-8",
-		"Content-Type": "application/json; charset=utf-8",
-		"key": key
-	},
-	dataType:"json",
-	success: function (result) {
-		if (result.result = "OK") {
-            console.log(result)
-			document.getElementById("username").innerText = result.fullname;
-            searchPic = new Image();
-            searchPic.src = result.profile_pic;
-            console.log(searchPic);
-            var _img = document.getElementById('userimage');
-            _img.src = searchPic.src;
-		}
-		else console.log(result.message);
-		
-	}
-})
-
-
-
 function getCookie(name) {
     const value = `;
     ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2)
-        return parts.pop().split(';').shift()
+    if (parts.length === 2) {
+        string = parts.pop().split(';').shift()
+        return string.slice(0, string.length - 7)
+    }
 }
-

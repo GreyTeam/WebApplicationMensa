@@ -113,7 +113,10 @@ def run_routes():
         print(user)
 
         if user is None:
-            return responses.key_doesnt_exist()
+            print("Key doesn't exist")
+            response = responses.key_doesnt_exist()
+            print(response)
+            return response
 
         return {
             "result": "OK",

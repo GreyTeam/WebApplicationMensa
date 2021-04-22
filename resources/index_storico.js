@@ -13,26 +13,28 @@ $(document).ready(function () {
         dataType:"json",
         success: function(result) {
 
+            if (result.result == "OK") {
+                console.log(result.chronology)
+                table = document.getElementById("table")
+                for (let i = 0; i < result.chronology.length; i++) {
+                    var tr = document.createElement('tr');
 
-			console.log(result.chronology)
-			table = document.getElementById("table")
-			for (let i = 0; i < result.chronology.length; i++) {
-				var tr = document.createElement('tr');
+                    var td = document.createElement('td');
+                    td.innerText = result.chronology[i];
+                    td.classList.add("cell");
 
-                var td = document.createElement('td');
-                td.innerText = result.chronology[i];
-                td.classList.add("cell");
-
-                var tstatus = document.createElement('td');
-                status = getStatus(result.chronology[i]);
-                console.log(status)
-                tstatus.innerText = status;
-                tstatus.classList.add("cell");
-                
-                tr.appendChild(td);
-                tr.appendChild(tstatus);
-                table.appendChild(tr);
-			}
+                    var tstatus = document.createElement('td');
+                    status = getStatus(result.chronology[i]);
+                    console.log(status)
+                    tstatus.innerText = status;
+                    tstatus.classList.add("cell");
+                    
+                    tr.appendChild(td);
+                    tr.appendChild(tstatus);
+                    table.appendChild(tr);
+                }
+            }
+            else console.log(result.message)
 		}
     })
 
@@ -47,8 +49,10 @@ function getCookie(name) {
     const value = `;
     ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2)
-        return parts.pop().split(';').shift()
+    if (parts.length === 2) {
+        string = parts.pop().split(';').shift()
+        return string.slice(0, string.length - 7)
+    }
 }
 
 function parseDate(date) {
