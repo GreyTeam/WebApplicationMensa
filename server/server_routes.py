@@ -62,20 +62,6 @@ def run_routes():
             "dates": dates_list
         } 
 
-    @app.route("/login", methods=['POST'])
-    def login():
-        if not server_utilities.header_exist("key"):
-            return responses.missing_element_response("key")
-        else:
-            key = server_utilities.get_header("key")
-            
-            user = users.search_user(key)
-            if user is not None:
-                user["result"] = "OK"
-                return user
-            else:
-                return responses.key_doesnt_exist()
-
     @app.route("/registration", methods=['POST'])
     def register():
         if not server_utilities.header_exist("nome"):
@@ -98,15 +84,44 @@ def run_routes():
         else:
             email = server_utilities.get_header("email")
 
+        if not server_utilities.header_exist("profile_pic"):
+            return responses.missing_element_response("profile_pic")
+        else:
+            profile_pic = server_utilities.get_header("profile_pic")
+
         users.add_user({
             "nome": nome,
             "cognome": cognome,
             "key": key,
+            "profile_pic": profile_pic,
             "email": email
         })
 
         return {
             "result": "OK"
+        }
+    
+    @app.route('/user/info', methods=["POST"])
+    def userinfo():
+        if not server_utilities.header_exist("key"):
+            return responses.missing_element_response("key")
+        else:
+            key = server_utilities.get_header("key")
+
+        user = users.search_user(key)
+
+        print(user)
+
+        if user is None:
+            print("Key doesn't exist")
+            response = responses.key_doesnt_exist()
+            print(response)
+            return response
+
+        return {
+            "result": "OK",
+            "fullname": "{0} {1}".format(user["nome"], user["cognome"]),
+            "profile_pic": user["profile_pic"]
         }
 
     @app.route('/chronology', methods=['POST'])

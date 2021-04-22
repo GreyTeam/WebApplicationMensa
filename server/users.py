@@ -34,9 +34,10 @@ def search_user(key):
 def user_exist(key):
     db = load_db(login_file_path)
     for user in db["users"]:
-        for key in user["keys"]:
-            return True
-    return None
+        for user_key in user["keys"]:
+            if user_key == key:
+                return True
+    return False
 
 def add_user(data):
     db = load_db(login_file_path)

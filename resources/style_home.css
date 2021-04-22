@@ -34,7 +34,7 @@ body{
 .box input[type = "submit"]{
   border:0;
   background: none;
-  margin: left;
+  margin: auto;
   text-align: center;
   font-family: High-School;
   border: 2px solid #FFFFFF;
@@ -95,4 +95,8 @@ body{
 img.avatar {
   width: 60%;
   border-radius: 50%;
+}
+
+.username{
+	color: white;
 }
