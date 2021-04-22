@@ -62,20 +62,6 @@ def run_routes():
             "dates": dates_list
         } 
 
-    @app.route("/login", methods=['POST'])
-    def login():
-        if not server_utilities.header_exist("key"):
-            return responses.missing_element_response("key")
-        else:
-            key = server_utilities.get_header("key")
-            
-            user = users.search_user(key)
-            if user is not None:
-                user["result"] = "OK"
-                return user
-            else:
-                return responses.key_doesnt_exist()
-
     @app.route("/registration", methods=['POST'])
     def register():
         if not server_utilities.header_exist("nome"):
@@ -107,6 +93,23 @@ def run_routes():
 
         return {
             "result": "OK"
+        }
+    
+    @app.route('/user/info', methods=["POST"])
+    def userinfo():
+        if not server_utilities.header_exist("key"):
+            return responses.missing_element_response("key")
+        else:
+            key = server_utilities.get_header("key")
+
+        user = users.search_user(key)
+
+        if user is None:
+            return responses.key_doesnt_exist()
+
+        return {
+            "result": "OK",
+            "fullname": "{0} {1}".format(user.nome, user.cognome)
         }
 
     @app.route('/chronology', methods=['POST'])
