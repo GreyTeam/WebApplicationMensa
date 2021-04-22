@@ -6,9 +6,14 @@ body{
   background-size:cover;    
 }
 .box{
+<<<<<<< HEAD
   border:0px;
   width: 450px;
   padding: 150px;
+=======
+  width: auto;
+  padding: 70px;
+>>>>>>> main
   position: absolute;
   top: 50%;
   left: 50%;
@@ -22,6 +27,7 @@ body{
 .box h1{
   color: white;
   text-transform: uppercase;
+<<<<<<< HEAD
   font-weight: 500px;
 
   top: 100%;
@@ -29,33 +35,87 @@ body{
   margin-bottom: 100px;
 
   
+=======
+  font-weight: 300;
+  top: 100%;
+  left: 50%;
+  margin-bottom: 60px;
+  font-size:30px
+>>>>>>> main
 }
 
-.box input[type = "submit"]{
-  border:0;
+.esci{
+  border:none;
+  border: 2px solid #FFFFFF;
   background: none;
   margin: auto;
   text-align: center;
   font-family: High-School;
-  border: 2px solid #FFFFFF;
-  width: 225PX;
-  padding: 20px 225px;
+  padding: 5px 40px;
   outline: none;
   color: white;
-  border-radius: 30px;
+  border-radius:20px;
   transition: 0.25s;
   cursor: pointer;
-  margin-top: 35px;
+  margin-top: 15px;
 }
-.box input[type = "submit"]:hover{
+
+.crono{
+  border:none;
+  border: 2px solid #FFFFFF;
+<<<<<<< HEAD
+  width: 225PX;
+  padding: 20px 225px;
+=======
+  background: none;
+  margin: auto;
+  text-align: center;
+  font-family: High-School;
+  padding: 5px 40px;
+>>>>>>> main
+  outline: none;
+  color: white;
+   border-radius:20px;
+  transition: 0.25s;
+  cursor: pointer;
+<<<<<<< HEAD
+  margin-top: 35px;
+=======
+  margin-top: 30px;
+>>>>>>> main
+}
+
+.prenota{
+  border:none;
+  border: 3px solid #FFFFFF;
+  background: none;
+  margin: auto;
+  text-align: center;
+  font-family: High-School;
+  padding: 17px 70px;
+  outline: none;
+  color: white;
+  border-radius:20px;
+  transition: 0.25s;
+  cursor: pointer;
+  margin-top: 25px;
+
+}
+.esci input[type = "submit"]:hover{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
 }
+
+
 .box select[type = "elenco"]{
+<<<<<<< HEAD
   border: 0;
   width: 20PX;
   padding: 215px;
+=======
+  padding: 5px;
+>>>>>>> main
   position: absolute;
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
@@ -63,30 +123,28 @@ body{
   text-align: center;
   font-size: 17px;
   font-style: High-School;
-  border: 2px solid #FFFFFF;
-  border-radius: 30px;
+  border:none;
+  border-bottom: 3px solid #FFFFFF;
   outline: none;
   color:white;
   transition: 0.25s;
   cursor: pointer;
   width: Auto;
- 
+  font-size:20px;
+  margin-bottom: 10px;
 }
 
 .box input[type = "elenco"]:hover{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
-  
 }
-
 
 .option{
     margin:40px;
     background: black;
     color:#ffffff;
 	backdrop-filter: blur(2.5px);
-
 }
 
 .option-selected {
@@ -96,9 +154,23 @@ body{
 img.avatar {
   width: 60%;
   border-radius: 50%;
+  border: 3px solid grey;
 }
 
 .box h4{
-	color: white;
+  color: white;
   font-family: High-School;
 }
+
+.box img{
+	width: 40%;
+}
+
+.box3{
+  width: auto;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  border-radius: 30px;
+}
+

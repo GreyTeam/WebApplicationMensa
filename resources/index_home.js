@@ -24,7 +24,7 @@ $.ajax({
 	success: function (result) {
 		if (result.result == "OK") {
             console.log(result)
-			document.getElementById("username").innerText = "Buongiorno " + result.fullname;
+			document.getElementById("username").innerText = "Buongiorno\n"+ result.fullname;
             searchPic = new Image();
             searchPic.src = result.profile_pic;
             console.log(searchPic);
