@@ -91,10 +91,22 @@ table {
   margin-bottom: 40px;
 }
 
-td, th {
+th {
   border-bottom: 2px solid #dddddd;
-  text-align: left;
+  text-align: center;
   padding: 8px;
+}
+
+td {
+  border-bottom: 2px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+.cell{
+	
+	text-color: white;
+	
 }
 
 .box2 {
@@ -112,4 +124,3 @@ td, th {
   border-color: white;
 }
 
-/*                                       HAI CACATO?
