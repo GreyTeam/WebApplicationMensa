@@ -97,15 +97,12 @@ th {
   padding: 8px;
 }
 
-td {
-  border-bottom: 2px solid #dddddd;
-  text-align: center;
-  padding: 8px;
-}
-
 .cell{
 	
 	text-color: white;
+	border-bottom: 2px solid #dddddd;
+    text-align: center;
+    padding: 8px;
 	
 }
 
