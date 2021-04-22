@@ -28,21 +28,7 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
 
-    $.ajax({
-        url:"/login",
-        type:"POST",
-        headers: { 
-          "Accept" : "application/json; charset=utf-8",
-          "Content-Type": "application/json; charset=utf-8",
-          "key": id_token
-        },
-        dataType:"json",
-        success: function (result) {
-            if (result.result == "OK")
-                window.location.replace("http://www.w3schools.com");
-            else registration(profile, id_token)
-        }
-    })
+    registration(profile, id_token);
 }
 
 function registration(data, key) {
@@ -59,6 +45,7 @@ function registration(data, key) {
         },
         dataType:"json",
         success: function (result) {
+            console.log(result)
             if (result.result == "OK") {
                 document.cookie = "key=" + key + " path=/;";
                 window.location.replace("index_home.html");
