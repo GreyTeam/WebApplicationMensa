@@ -84,10 +84,16 @@ def run_routes():
         else:
             email = server_utilities.get_header("email")
 
+        if not server_utilities.header_exist("profile_pic"):
+            return responses.missing_element_response("profile_pic")
+        else:
+            profile_pic = server_utilities.get_header("profile_pic")
+
         users.add_user({
             "nome": nome,
             "cognome": cognome,
             "key": key,
+            "profile_pic": profile_pic,
             "email": email
         })
 
@@ -104,12 +110,15 @@ def run_routes():
 
         user = users.search_user(key)
 
+        print(user)
+
         if user is None:
             return responses.key_doesnt_exist()
 
         return {
             "result": "OK",
-            "fullname": "{0} {1}".format(user.nome, user.cognome)
+            "fullname": "{0} {1}".format(user["nome"], user["cognome"]),
+            "profile_pic": user["profile_pic"]
         }
 
     @app.route('/chronology', methods=['POST'])
