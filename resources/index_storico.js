@@ -47,11 +47,8 @@ function getCookie(name) {
     const value = `;
     ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) {
-        string = parts.pop().split(';').shift()
-        string = string.slice(0, string.length - 7)
-        return string
-    }
+    if (parts.length === 2)
+        return parts.pop().split(';').shift()
 }
 
 function parseDate(date) {

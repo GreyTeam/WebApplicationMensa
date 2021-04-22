@@ -31,18 +31,20 @@ function registration(data, key) {
     })
 }
 
-function onSuccess(googleUser) {
-console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+function renderButton() {
+    gapi.signin2.render('signin', {
+        'scope': 'profile email',
+        'width': 350,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        "onsuccess": onSignIn
+    });
 }
 
-
-function renderButton() {
-gapi.signin2.render('signin', {
-    'scope': 'profile email',
-    'width': 350,
-    'height': 50,
-    'longtitle': true,
-    'theme': 'dark',
-    "onsuccess": onSignIn
-});
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
