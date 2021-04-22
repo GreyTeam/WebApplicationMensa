@@ -27,7 +27,7 @@ body{
   font-weight: 300;
   top: 100%;
   left: 50%;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
   
 }
 
@@ -85,16 +85,10 @@ th {
 .box2 {
 
   border-width: 2px;
-  width: 200;
+  width: auto;
   padding: 30px;
-<<<<<<< Updated upstream
-=======
-  position:	relative;
->>>>>>> Stashed changes
   top: 50%;
   left: 50%;
-  position: relative;
-  transform: translate(-50%,-50%);
   text-align: center;
   border-radius: 20px;
   border-color: white;
