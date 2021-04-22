@@ -84,10 +84,13 @@ th {
 
 .box2 {
 
-  margin-top: 100px;
   border-width: 2px;
   width: 300;
   padding: 30px;
+<<<<<<< Updated upstream
+=======
+  position:	relative;
+>>>>>>> Stashed changes
   top: 50%;
   left: 50%;
   position: relative;
@@ -95,6 +98,5 @@ th {
   text-align: center;
   border-radius: 20px;
   border-color: white;
-  margin-bottom: 50px;
 }
 
