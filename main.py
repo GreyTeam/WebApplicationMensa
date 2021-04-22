@@ -1,6 +1,6 @@
 import flask
 from server import server_routes, database_utilities, server_utilities, responses
-from utilities import dates
+from utilities import dates, control_panel
 
 # Setup server
 app = flask.Flask(__name__)
