@@ -14,3 +14,5 @@ json.dump({
     "totale": 0,
     "prenotazioni": []
 }, open("prenotazioni.json", "w"), indent=4)
+
+json.dump([], open("log.json", "w"), indent=4)
