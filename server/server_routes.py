@@ -1,7 +1,7 @@
 import flask
 import os
 from server import database_utilities, server_utilities, responses, users
-from utilities import dates, prenotazioni
+from utilities import dates, prenotazioni, log
 
 app: flask.Flask
 
@@ -21,23 +21,31 @@ def run_routes():
 
         # Controllo se la richiesta soddisfa i requisiti
         if not server_utilities.header_exist("key"):
-            return responses.missing_element_response("key")
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             key = server_utilities.get_header("key")
 
         if not server_utilities.header_exist("x-date"):
-            return responses.missing_element_response("x-date")
+            response = responses.missing_element_response("x-date")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             date = server_utilities.get_header("x-date")
             if not dates.verify_date(date):
-                return responses.invalid_date_response()
+                response = responses.invalid_date_response()
+                log.log("DATE", response["message"], server_utilities.get_headers_list())
+                return response
 
         # Aggiungo al database la prenotazione
         user = users.search_user(key)
 
         if user is not None:
             if prenotazioni.check_date_reservations(user["email"], date):
-                return responses.reservation_already_registered(date)
+                response = responses.reservation_already_registered(date)
+                log.log("REGISTERED", response["message"], server_utilities.get_headers_list())
+                return response
             else:
                 database_utilities.append_user({
                     "nome": user["nome"],
@@ -46,7 +54,9 @@ def run_routes():
                     "email": user["email"]
                 })
         else:
-            return responses.key_doesnt_exist()
+            response = responses.key_doesnt_exist()
+            log.log("KEY", response["message"], server_utilities.get_headers_list())
+            return response
 
         # Ritorno OK al client
         return {
@@ -65,27 +75,37 @@ def run_routes():
     @app.route("/registration", methods=['POST'])
     def register():
         if not server_utilities.header_exist("nome"):
-            return responses.missing_element_response("nome")
+            response = responses.missing_element_response("nome")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             nome = server_utilities.get_header("nome")
 
         if not server_utilities.header_exist("cognome"):
-            return responses.missing_element_response("cognome")
+            response = responses.missing_element_response("cognome")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             cognome = server_utilities.get_header("cognome")
 
         if not server_utilities.header_exist("key"):
-            return responses.missing_element_response()
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             key = server_utilities.get_header("key")
 
         if not server_utilities.header_exist("email"):
-            return responses.missing_element_response("email")
+            response = responses.missing_element_response("email")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             email = server_utilities.get_header("email")
 
         if not server_utilities.header_exist("profile_pic"):
-            return responses.missing_element_response("profile_pic")
+            response = responses.missing_element_response("profile_pic")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             profile_pic = server_utilities.get_header("profile_pic")
 
@@ -104,7 +124,9 @@ def run_routes():
     @app.route('/user/info', methods=["POST"])
     def userinfo():
         if not server_utilities.header_exist("key"):
-            return responses.missing_element_response("key")
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             key = server_utilities.get_header("key")
 
@@ -113,9 +135,8 @@ def run_routes():
         print(user)
 
         if user is None:
-            print("Key doesn't exist")
             response = responses.key_doesnt_exist()
-            print(response)
+            log.log("KEY", response["message"], server_utilities.get_headers_list())
             return response
 
         return {
@@ -127,14 +148,18 @@ def run_routes():
     @app.route('/chronology', methods=['POST'])
     def chronology():
         if not server_utilities.header_exist("key"):
-            return responses.missing_element_response("key")
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
         else:
             key = server_utilities.get_header("key")
 
         user = users.search_user(key)
 
         if user is None:
-            return responses.key_doesnt_exist()
+            response = responses.key_doesnt_exist()
+            log.log("KEY", response["message"], server_utilities.get_headers_list())
+            return response
 
         return {
             "result": "OK",
