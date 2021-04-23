@@ -31,7 +31,7 @@ $.ajax({
                 console.log(status)
                 tstatus.innerText = status;
                 tstatus.classList.add("cell");
-                
+          
                 tr.appendChild(td);
                 tr.appendChild(tstatus);
                 table.appendChild(tr);
