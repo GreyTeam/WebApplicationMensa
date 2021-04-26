@@ -12,35 +12,40 @@ html {
 .container {
   width: 100%;
   /*height: 100vh;*/
-  background-color: #12121f;
-  color: #eee;
+  background-color: none;
+  color: #0088c6;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 30px;
 }
 
 .calendar {
  /*width: 50%;*/
  /* height: 50%;*/
-  background-color: #222227;
-  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  background-color: none;
+  padding:20px;
+  
+  border-radius: 31px;
 }
 
 .month {
   width: 100%;
   height: 12rem;
-  background-color: #167e56;
+  background-color: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
   text-align: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+
 }
 
 .month i {
   font-size: 2.5rem;
   cursor: pointer;
+
 }
 
 .month h1 {
@@ -49,6 +54,7 @@ html {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   margin-bottom: 1rem;
+
 }
 
 .month p {
@@ -61,17 +67,18 @@ html {
   padding: 0 0.4rem;
   display: flex;
   align-items: center;
+
 }
 
 .weekdays div {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   width: calc(44.2rem / 7);
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+
 }
 
 .days {
@@ -82,43 +89,50 @@ html {
 }
 
 .days div {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   margin: 0.3rem;
   width: calc(40.2rem / 7);
-  /*height: 5rem;*/
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
   transition: background-color 0.2s;
+  font-weight: 1000;
+
 }
 
 .days div:hover:not(.today) {
-  background-color: #262626;
-  border: 0.2rem solid #777;
+  background-color: #76b042;
+  border: 0.2rem solid #76b042;
   cursor: pointer;
 }
 
-.prev-date,
+.prev-date{
+
+}
 .next-date {
   opacity: 0.5;
 }
 
 .today {
-  background-color: #167e56;
+  background-color: #76b042;
+ 
 }
 
 
 /*box principale*/
 
 body{										
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:0;
   font-family: 'poppins',sans-serif;
-  background-color:#393e46;
-  background-size:cover;    
+  background-image:url(mensa1.jpg);   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
 }
-
 .box{
 	
   border:0;
@@ -129,20 +143,21 @@ body{
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
-  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0, 0.05); 
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
   text-align: center;
   border-radius: 30px;
 }
 
 .box h1{
-  color: #00adb5;
+  color:#0088c6;
   text-transform: uppercase;
   text-align: center;
-  /*font-weight: 300;*/
+  font-weight: 1000;
   top: 100%;
   left: 50%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   
 }
 
@@ -151,10 +166,10 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #0088c6;
   padding: 20px 50px;
   outline: none;
-  color: white;
+  color: #0088c6;
   border-radius: 30px;
   transition: 0.25s;
   cursor: pointer;
@@ -164,6 +179,7 @@ body{
 }
 .box input[type = "submit"]:hover{
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: #0088c6; 
+  color:white;
   backdrop-filter: blur(10px);
 }
