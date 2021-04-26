@@ -7,7 +7,7 @@ $.post(
             option.text = "Non ci sono date prenotabili"
             option.classList.add("option")
             select.add(option)
-            document.getElementById("submit").disabled = true;
+            $('#submit').remove();
         }
         else {
             for (let i = 0; i < result.number_of_dates; i++) {
