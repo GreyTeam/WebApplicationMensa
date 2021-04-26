@@ -6,7 +6,7 @@ def create_xlsx_file():
 
     data = prenotazioni.get_day_list()
 
-    workbook = xlsxwriter.Workbook('data/prev_tables/' + datetime.now().strftime("%d_%m") + "xmlx")
+    workbook = xlsxwriter.Workbook('data/prev_tables/' + datetime.now().strftime("%d_%m") + ".xlsx")
     titles = workbook.add_format({'bold': True, 'font_color': 'white', 'bg_color': 'red'})
     bold = workbook.add_format({'bold': True})
 

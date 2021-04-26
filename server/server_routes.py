@@ -1,7 +1,8 @@
 import flask
 import os
+from datetime import datetime
 from server import database_utilities, server_utilities, responses, users
-from utilities import dates, prenotazioni, log
+from utilities import dates, prenotazioni, log, control_panel
 
 app: flask.Flask
 
@@ -160,10 +161,43 @@ def run_routes():
             response = responses.key_doesnt_exist()
             log.log("KEY", response["message"], server_utilities.get_headers_list())
             return response
+        else:
+            return {
+                "result": "OK",
+                "chronology": prenotazioni.check_user_reservations(user["email"])
+            }
+    
+    @app.route('/admin/prenotazioni', methods=['GET'])
+    def download():
+        today = datetime.now().strftime("%d_%m")
+        control_panel.create_xlsx_file()
+        return flask.send_file(f"data/prev_tables/{today}.xlsx", as_attachment=True)
+
+    @app.route('/admin/dates', methods=['POST'])
+    def add_holiday():
+        if not server_utilities.header_exist("from"):
+            response = responses.missing_element_response("from")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            date_from = server_utilities.get_header("from")
+
+        if not server_utilities.header_exist("to"):
+            response = responses.missing_element_response("to")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            date_to = server_utilities.get_header("to")
+
+        db = database_utilities.load_db(database_utilities.dates_file_path)
+        db.append({
+            "from": date_from,
+            "to": date_to
+        })
+        database_utilities.save_db(db, database_utilities.dates_file_path)
 
         return {
-            "result": "OK",
-            "chronology": prenotazioni.check_user_reservations(user["email"])
+            "result": "OK"
         }
 
     @app.route('/<resource>', methods=['GET'])
