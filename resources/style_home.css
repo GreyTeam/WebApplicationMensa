@@ -1,9 +1,13 @@
 body{										
   margin: 0;
   padding: 0;
-  font-family: High-School;
+  font-family: 'poppins',sans-serif;
   background-image:url(mensa.jpg);
   background-size:cover;    
+}
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 .box{
   border:0;
@@ -19,33 +23,23 @@ body{
   text-align: center;
   border-radius: 30px;
 }
+
 .box h1{
   color: white;
   text-transform: uppercase;
-
-  font-weight: 500px;
-
-  top: 100%;
+  font-weight: 1000;
+  top: 10%;
   left: 50%;
-  margin-bottom: 100px;
-
-  
-
-  font-weight: 300;
-  top: 100%;
-  left: 50%;
-  margin-bottom: 60px;
-  font-size:30px
+  margin-bottom: 50px; 
 
 }
 
-.esci{
+.box input[class = "esci"]{
   border:none;
   border: 2px solid #FFFFFF;
   background: none;
   margin: auto;
   text-align: center;
-  font-family: High-School;
   padding: 5px 40px;
   outline: none;
   color: white;
@@ -54,8 +48,13 @@ body{
   cursor: pointer;
   margin-top: 15px;
 }
+.box input[class = "esci"]:hover{
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4); 
+  backdrop-filter: blur(10px);
+}
 
-.crono{
+.box input[class = "crono"]{
   border:none;
   border: 2px solid #FFFFFF;
 
@@ -65,7 +64,6 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  font-family: High-School;
   padding: 5px 40px;
 
   outline: none;
@@ -79,6 +77,11 @@ body{
   margin-top: 30px;
   position: relative;
 }
+.box input[class = "crono"]:hover{
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.4); 
+  backdrop-filter: blur(10px);
+}
 
 .prenota{
   border:none;
@@ -86,7 +89,6 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  font-family: High-School;
   padding: 17px 70px;
   outline: none;
   color: white;
@@ -94,15 +96,14 @@ body{
   transition: 0.25s;
   cursor: pointer;
   margin-top: 25px;
-position: relative;
+  position: relative;
 
 }
-.esci input[type = "submit"]:hover{
+.box input[class = "prenota"]:hover{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
 }
-
 
 .box select[type = "elenco"]{
 
@@ -130,7 +131,7 @@ position: relative;
   margin-bottom: 10px;
 }
 
-.box input[type = "elenco"]:hover{
+.box select[type = "elenco"]:hover{
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0, 0.4); 
   backdrop-filter: blur(10px);
@@ -155,7 +156,6 @@ img.avatar {
 
 .box h4{
   color: white;
-  font-family: High-School;
 }
 
 .box img{
