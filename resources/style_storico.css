@@ -24,6 +24,7 @@ body{
   box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
   text-align: center;
   border-radius: 30px;
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .box h1{
@@ -34,7 +35,7 @@ body{
   top: 100%;
   left: 50%;
   margin-bottom: 0px;
-  
+  font-weight: 1000;
 }
 
 .box input[type = "submit"]{
@@ -55,7 +56,7 @@ body{
   background-color: rgb(0,0,0);
   background-color: #0088c6; 
   color:white;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
 
 
@@ -75,11 +76,17 @@ th {
   max-width:67%;
 }
 
+thead, tbody { display: block; }
 
+tbody {
+  height: 200px;       /* Just for the demo          */
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
+}
 
 .cell{
-  color: white;
-  border-bottom: 2px solid #dddddd;
+  color: #e66129;
+  border-bottom: 2px solid #0088c6;
   text-align: center;
   padding: 8px;
   width: 2%

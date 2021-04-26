@@ -108,7 +108,7 @@ html {
 }
 
 .prev-date{
-
+  opacity: 0.5;
 }
 .next-date {
   opacity: 0.5;
