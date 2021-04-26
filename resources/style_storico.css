@@ -30,10 +30,10 @@ body{
   color:#0088c6;
   text-transform: uppercase;
   text-align: center;
-  font-weight: 300;
+  font-weight: 1000;
   top: 100%;
   left: 50%;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
   
 }
 
@@ -69,7 +69,7 @@ table {
 }
 
 th {
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid #76b042;
   text-align: center;
   padding: 8px;
   max-width:67%;
@@ -78,8 +78,8 @@ th {
 
 
 .cell{
-  color: white;
-  border-bottom: 2px solid #dddddd;
+  color: #76b042;
+  border-bottom: 2px solid #76b042;
   text-align: center;
   padding: 8px;
   width: 2%

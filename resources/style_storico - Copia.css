@@ -2,7 +2,8 @@ body{
   margin: 0;
   padding: 0;
   background-image:url(mensa.jpg);
-  background-size:cover;    
+  background-size:cover;   
+  font-family: 'poppins',sans-serif;  
 }
 
 .box{
@@ -36,7 +37,6 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  font-family: High-School;
   border: 2px solid #FFFFFF;
   padding: 20px 50px;
   outline: none;
@@ -56,7 +56,7 @@ body{
 /* tabella */
 
 table {
-  font-family: arial, sans-serif;
+  font-family: 'poppins',sans-serif; 
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 20px;
@@ -72,13 +72,11 @@ th {
 
 
 .cell{
-	
 	color: white;
 	border-bottom: 2px solid #dddddd;
     text-align: center;
     padding: 8px;
 	width: 2%
-	
 	
 }
 
