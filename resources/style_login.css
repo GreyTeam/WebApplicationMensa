@@ -1,7 +1,7 @@
 body{										
   margin: 0;
   padding: 0;
-  font-family: High-School;
+  font-family: 'poppins',sans-serif;
   background-image:url(mensa.jpg);   
   background-repeat: no-repeat;
   background-size: cover;  
@@ -34,7 +34,6 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  font-family: High-School;
   border: 2px solid #FFFFFF;
   padding: 20px 50px;
   outline: none;
