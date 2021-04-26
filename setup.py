@@ -1,8 +1,12 @@
 import os
 import json
+import shutil
 
+if os.path.isdir("data"):
+    shutil.rmtree("data")
 os.mkdir("data")
 os.chdir("data")
+
 os.mkdir("prev_tables")
 
 json.dump({
