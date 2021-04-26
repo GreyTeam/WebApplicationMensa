@@ -7,3 +7,6 @@ def header_exist(header):
 
 def get_header(header):
     return flask.request.headers.get(header)
+
+def get_headers_list():
+    return dict(flask.request.headers)

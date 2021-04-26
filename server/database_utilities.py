@@ -4,6 +4,7 @@ import datetime
 
 prenotazioni_file_path = 'data/prenotazioni.json'
 login_file_path = 'data/users.json'
+log_file_path = 'data/log.json'
 
 def load_db(db_filename):
     return json.load(open(db_filename, "r")) if os.path.isfile(db_filename) else {}
