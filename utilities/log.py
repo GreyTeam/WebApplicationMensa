@@ -8,7 +8,7 @@ def log(l_type, message, info):
         "type": l_type,
         "message": message,
         "info": info,
-        "timestamp": datetime.now().timestamp()
+        "timestamp": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
     })
     save_db(db, log_file_path)
     
