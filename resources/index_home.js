@@ -86,3 +86,6 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
+
+
+$("#schermata_caricamento").fadeOut(500);

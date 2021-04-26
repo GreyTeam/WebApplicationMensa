@@ -71,3 +71,32 @@ function getStatus(date) {
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
 }
+
+
+
+
+
+
+
+
+
+
+
+$('body').toggleClass('loaded');
+
+$(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+        $('h1').css('color','#222222');
+    }, 1000);
+ 
+});
+/*
+.no-js #loader-wrapper {
+    display: none;
+}
+.no-js h1 {
+    color: #222222;
+}
+*/
