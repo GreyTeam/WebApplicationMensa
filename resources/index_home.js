@@ -88,4 +88,14 @@ function getCookie(name) {
 }
 
 
-$("#schermata_caricamento").fadeOut(500);
+
+
+$('body').toggleClass('loaded');
+
+$(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 1000);
+ 
+});
