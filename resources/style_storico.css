@@ -31,7 +31,7 @@ body{
   color:#0088c6;
   text-transform: uppercase;
   text-align: center;
-  font-weight: 300;
+  font-weight: 1000;
   top: 100%;
   left: 50%;
   margin-bottom: 0px;
@@ -70,7 +70,7 @@ table {
 }
 
 th {
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid #76b042;
   text-align: center;
   padding: 8px;
   max-width:67%;
