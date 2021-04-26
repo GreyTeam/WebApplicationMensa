@@ -71,3 +71,24 @@ function getStatus(date) {
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
 }
+
+
+
+
+
+
+
+
+
+
+
+$('body').toggleClass('loaded');
+
+$(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+        
+    }, 1000);
+ 
+});

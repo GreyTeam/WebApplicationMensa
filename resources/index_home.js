@@ -86,3 +86,16 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
+
+
+
+
+$('body').toggleClass('loaded');
+
+$(document).ready(function() {
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 1000);
+ 
+});
