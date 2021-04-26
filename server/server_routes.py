@@ -1,5 +1,6 @@
 import flask
 import os
+import json
 from datetime import datetime
 from server import database_utilities, server_utilities, responses, users
 from utilities import dates, prenotazioni, log, control_panel
@@ -175,30 +176,31 @@ def run_routes():
 
     @app.route('/admin/dates', methods=['POST'])
     def add_holiday():
-        if not server_utilities.header_exist("from"):
-            response = responses.missing_element_response("from")
-            log.log("MISSING", response["message"], server_utilities.get_headers_list())
-            return response
-        else:
-            date_from = server_utilities.get_header("from")
-
-        if not server_utilities.header_exist("to"):
-            response = responses.missing_element_response("to")
-            log.log("MISSING", response["message"], server_utilities.get_headers_list())
-            return response
-        else:
-            date_to = server_utilities.get_header("to")
 
         db = database_utilities.load_db(database_utilities.dates_file_path)
-        db.append({
-            "from": date_from,
-            "to": date_to
-        })
-        database_utilities.save_db(db, database_utilities.dates_file_path)
+        
+        if not server_utilities.header_exist("set"):
+            response = responses.missing_element_response("set")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            x_set = server_utilities.get_header("set")
 
-        return {
-            "result": "OK"
-        }
+        print(x_set)
+
+        if x_set == "true":
+        
+            database_utilities.save_db(flask.request.get_json(), database_utilities.dates_file_path)
+
+            return {
+                "result": "OK"
+            }
+        
+        else:
+            return {
+                "result": "OK",
+                "dates": db
+            }
 
     @app.route('/<resource>', methods=['GET'])
     def res(resource):

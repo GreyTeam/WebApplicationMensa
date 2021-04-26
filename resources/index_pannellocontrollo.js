@@ -80,7 +80,27 @@ function formatForData(data) {
 	return data.toString()
 }
     
-$(".date").click(() => {
-	_ = $(this).val() + "/" + formatForData(date.getMonth()) + "/" + (date.getYear() - 100)
-	console.log(_)
+$(".date").click(function () {
+	_ = this.innerText + "/" + formatForData(date.getMonth()) + "/" + (date.getYear() - 100)
+	if (!selected.includes(_))
+		selected.push(_);
+	else 
+		selected.splice(selected.indexOf(_), 1)
+		
+	this.classList.toggle("selected")
+})
+
+$("#send").click(function () {
+	$.ajax({
+		url:"/admin/dates",
+		type:"POST",
+		headers: { 
+			"Accept" : "application/json; charset=utf-8",
+			"Content-Type": "application/json; charset=utf-8"
+		},
+		dataType:"json",
+		data: JSON.stringify(selected),
+		success: function(result) {}
+	
+	})
 })

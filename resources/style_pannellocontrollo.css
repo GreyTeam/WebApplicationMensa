@@ -107,6 +107,12 @@ html {
   cursor: pointer;
 }
 
+.selected {
+  background-color: #76b042;
+  border: 0.2rem solid #76b042;
+  cursor: pointer;
+}
+
 .prev-date{
   opacity: 0.5;
 }
