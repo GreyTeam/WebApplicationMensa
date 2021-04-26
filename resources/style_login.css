@@ -1,10 +1,13 @@
 body{										
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:0;
   font-family: 'poppins',sans-serif;
-  background-image:url(mensa.jpg);   
+  background-image:url(mensa1.jpg);   
+  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;  
+  background-size: cover;
+  position: relative;
+  
 }
 .box{
   border:0;
@@ -15,18 +18,20 @@ body{
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: rgba(0,0,0, 0.05); 
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
   text-align: center;
   border-radius: 30px;
 }
 .box h1{
-  color: white;
+  color:#0088c6;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 1000;
-  top: 10%;
+  top: 100%;
   left: 50%;
-  margin-bottom: 50px; 
+  margin-bottom: 20px;
 }
 
 .box input[type = "submit"]{
@@ -34,10 +39,10 @@ body{
   background: none;
   margin: auto;
   text-align: center;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #0088c6;
   padding: 20px 50px;
   outline: none;
-  color: white;
+  color: #0088c6;
   border-radius: 30px;
   transition: 0.25s;
   cursor: pointer;
@@ -45,6 +50,7 @@ body{
 }
 .box input[type = "submit"]:hover{
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: #0088c6; 
+  color:white;
   backdrop-filter: blur(10px);
 }

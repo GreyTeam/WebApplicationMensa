@@ -1,14 +1,15 @@
 body{										
-  margin: 0;
-  padding: 0;
+  margin:0;
+  padding:0;
   font-family: 'poppins',sans-serif;
-  background-image:url(mensa.jpg);
-  background-size:cover;    
+  background-image:url(mensa1.jpg);   
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
 }
-html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-}
+
 .box{
   border:0;
   width: 300;
@@ -18,31 +19,33 @@ html {
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: rgba(0,0,0, 0.05); 
   backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px 0 rgb(0 0 0 / 20%), 0 4px 20px 0 rgb(0 0 0 / 19%);
   text-align: center;
   border-radius: 30px;
 }
 
 .box h1{
-  color: white;
+  color:#0088c6;
   text-transform: uppercase;
+  text-align: center;
   font-weight: 1000;
-  top: 10%;
+  top: 100%;
   left: 50%;
-  margin-bottom: 50px; 
+  margin-bottom: 20px;
 
 }
 
 .box input[class = "esci"]{
   border:none;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #0088c6;
   background: none;
   margin: auto;
   text-align: center;
   padding: 5px 40px;
   outline: none;
-  color: white;
+  color: #0088c6;
   border-radius:20px;
   transition: 0.25s;
   cursor: pointer;
@@ -50,48 +53,45 @@ html {
 }
 .box input[class = "esci"]:hover{
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: #0088c6; 
+  color:white;
   backdrop-filter: blur(10px);
 }
 
 .box input[class = "crono"]{
   border:none;
-  border: 2px solid #FFFFFF;
-
+  border: 2px solid #0088c6;
   width: 225PX;
   padding: 20px 225px;
-
   background: none;
   margin: auto;
   text-align: center;
   padding: 5px 40px;
-
   outline: none;
-  color: white;
-   border-radius:20px;
+  color: #0088c6;
+  border-radius:20px;
   transition: 0.25s;
   cursor: pointer;
-
-  margin-top: 35px;
 
   margin-top: 30px;
   position: relative;
 }
 .box input[class = "crono"]:hover{
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: #0088c6; 
+  color:white;
   backdrop-filter: blur(10px);
 }
 
 .prenota{
   border:none;
-  border: 3px solid #FFFFFF;
+  border: 2px solid #0088c6;
   background: none;
   margin: auto;
   text-align: center;
   padding: 17px 70px;
   outline: none;
-  color: white;
+  color: #0088c6;
   border-radius:20px;
   transition: 0.25s;
   cursor: pointer;
@@ -101,7 +101,8 @@ html {
 }
 .box input[class = "prenota"]:hover{
   background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0, 0.4); 
+  background-color: #0088c6; 
+  color:white;
   backdrop-filter: blur(10px);
 }
 
@@ -109,21 +110,17 @@ html {
 
   border: 0;
   width: 20PX;
-  padding: 215px;
-
   padding: 5px;
-
   position: absolute;
   transform: translate(-50%,-50%);
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0); 
   text-align: center;
   font-size: 17px;
-  font-style: High-School;
   border:none;
-  border-bottom: 3px solid #FFFFFF;
+  border-bottom: 3px solid #0088c6;
   outline: none;
-  color:white;
+  color: #0088c6;
   transition: 0.25s;
   cursor: pointer;
   width: Auto;
@@ -140,26 +137,26 @@ html {
 .option{
     margin:40px;
     background: black;
-    color:#ffffff;
+	color: #0088c6;
 	backdrop-filter: blur(2.5px);
 }
 
 .option-selected {
-  background-color: white;
+  background-color: #0088c6;;
 }
 
 img.avatar {
   width: 60%;
   border-radius: 50%;
-  border: 3px solid grey;
+  border: 3px solid #0088c6;
 }
 
 .box h4{
-  color: white;
+  color: #0088c6;
 }
 
 .box img{
-	width: 40%;
+  width: 40%;
 }
 
 .box3{
