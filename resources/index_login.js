@@ -9,7 +9,7 @@ function onSignIn(googleUser) {
 	alert('Email non valida!');
 	}
 	
-   // registration(profile, id_token);
+   registration(profile, id_token);
 }
 
 function registration(data, key) {
