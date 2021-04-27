@@ -2,8 +2,14 @@ function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
-
-    registration(profile, id_token);
+	
+	console.log('Email: ' + profile.getEmail()); 
+  
+	if(!profile.getEmail().includes('@istitutopilati.it')){
+	alert('Email non valida!');
+	}
+	
+   // registration(profile, id_token);
 }
 
 function registration(data, key) {
@@ -35,7 +41,7 @@ function registration(data, key) {
 function renderButton() {
     gapi.signin2.render('signin', {
         'scope': 'profile email',
-        'width': 350,
+        'width':250,
         'height': 50,
         'longtitle': true,
         'theme': 'dark',
@@ -46,3 +52,5 @@ function renderButton() {
 function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";max-age=" + 30*24*60*60; + ";path=/";
 }
+
+
