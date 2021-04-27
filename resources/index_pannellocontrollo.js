@@ -1,5 +1,5 @@
 const date = new Date();
-const selected = []
+var selected = []
 
 const renderCalendar = () => {
   	date.setDate(1);
@@ -47,19 +47,32 @@ const renderCalendar = () => {
 
 	let days = "";
 
-	for (let x = firstDayIndex; x > 0; x--) {
-		days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
-	}
+	$.ajax({
+		url:"/admin/dates",
+		type:"POST",
+		headers: { 
+			"Accept" : "application/json; charset=utf-8",
+			"Content-Type": "application/json; charset=utf-8",
+			"set": "false"
+		},
+		dataType:"json",
+		success: function(result) {
+			if (result.result == "OK") {
+				selected = result.dates;
+				setupDates()
 
-	for (let i = 1; i <= lastDay; i++) {
-		days += `<div class="date">${i}</div>`;
-	}
-
-	for (let j = 1; j <= nextDays; j++) {
-		days += `<div class="next-date">${j}</div>`;
-		monthDays.innerHTML = days;
-	}
-	};
+				$(".dates_clickable").click(function () {
+					_ = this.innerText + "/" + formatForData(date.getMonth() + 1) + "/" + (date.getYear() - 100)
+					if (!selected.includes(_))
+						selected.push(_);
+					else 
+						selected.splice(selected.indexOf(_), 1)
+						
+					this.classList.toggle("selected")
+				})
+			}
+		}
+	})
 
 	document.querySelector(".prev").addEventListener("click", () => {
 		date.setMonth(date.getMonth() - 1);
@@ -71,7 +84,29 @@ const renderCalendar = () => {
 		renderCalendar();
 	});
 
-renderCalendar();
+	function setupDates() {
+
+		for (let x = firstDayIndex; x > 0; x--) {
+			days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+		}
+
+		for (let i = 1; i <= lastDay; i++) {
+			text = (formatForData(i) + "/" + formatForData(date.getMonth() + 1) + "/" + (date.getYear() - 100)).toString()
+			if (selected.includes(text)) {
+				days += `<div class="dates_clickable selected">${i}</div>`;
+			}
+			else	
+				days += `<div class="dates_clickable">${i}</div>`;
+		}
+
+		for (let j = 1; j <= nextDays; j++) {
+			days += `<div class="next-date">${j}</div>`;
+			monthDays.innerHTML = days;
+		}
+	};
+
+	return;
+}
 
 
 function formatForData(data) {
@@ -80,27 +115,29 @@ function formatForData(data) {
 	return data.toString()
 }
     
-$(".date").click(function () {
-	_ = this.innerText + "/" + formatForData(date.getMonth()) + "/" + (date.getYear() - 100)
-	if (!selected.includes(_))
-		selected.push(_);
-	else 
-		selected.splice(selected.indexOf(_), 1)
+$(document).ready(() => {
+
+	renderCalendar();
+
+	$("#send").click(function () {
+		$.ajax({
+			url:"/admin/dates",
+			type:"POST",
+			headers: { 
+				"Accept" : "application/json; charset=utf-8",
+				"Content-Type": "application/json; charset=utf-8",
+				"set": "true"
+			},
+			dataType:"json",
+			data: JSON.stringify(selected),
+			success: function(result) {
+				if (result.result == "OK")
+					alert("Date aggiornate correttamente")
+			}
 		
-	this.classList.toggle("selected")
+		})
+	})
+
+	
 })
 
-$("#send").click(function () {
-	$.ajax({
-		url:"/admin/dates",
-		type:"POST",
-		headers: { 
-			"Accept" : "application/json; charset=utf-8",
-			"Content-Type": "application/json; charset=utf-8"
-		},
-		dataType:"json",
-		data: JSON.stringify(selected),
-		success: function(result) {}
-	
-	})
-})
