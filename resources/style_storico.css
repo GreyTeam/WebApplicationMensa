@@ -373,3 +373,7 @@ animation: spin 1.5s linear infinite;*/
         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
+
+input {
+    -webkit-appearance: none;
+}
