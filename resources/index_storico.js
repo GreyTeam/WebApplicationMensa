@@ -36,6 +36,7 @@ $.ajax({
                 tr.appendChild(tstatus);
                 table.appendChild(tr);
             }
+            $('body').addClass('loaded');
         }
         else console.log(result.message)
     }
@@ -82,13 +83,8 @@ function getStatus(date) {
 
 
 
-$('body').toggleClass('loaded');
+
 
 $(document).ready(function() {
- 
-    setTimeout(function(){
-        $('body').addClass('loaded');
-        
-    }, 1000);
- 
+    $('body').toggleClass('loaded');
 });

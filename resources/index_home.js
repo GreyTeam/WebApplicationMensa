@@ -1,3 +1,4 @@
+
 $.post(
     "/prenota/date", function(result) {
         console.log(result)
@@ -39,6 +40,7 @@ $.ajax({
             console.log(searchPic);
             var _img = document.getElementById('userimage');
             _img.src = searchPic.src;
+            $('body').addClass('loaded');
 		}
 		else console.log(result.message);
 	}
@@ -87,15 +89,6 @@ function getCookie(name) {
     }
 }
 
-
-
-
-$('body').toggleClass('loaded');
-
 $(document).ready(function() {
- 
-    setTimeout(function(){
-        $('body').addClass('loaded');
-    }, 1000);
- 
+    $('body').toggleClass('loaded');
 });
