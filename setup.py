@@ -20,3 +20,5 @@ json.dump({
 }, open("prenotazioni.json", "w"), indent=4)
 
 json.dump([], open("log.json", "w"), indent=4)
+
+json.dump([], open("dates.json", "w"), indent=4)
