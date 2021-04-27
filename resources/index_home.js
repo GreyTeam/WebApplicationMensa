@@ -63,8 +63,7 @@ $(document).ready(function () {
             success: function (result) {
                 console.log(result)
                 if (result.result == "OK") {
-                    document.cookie = "key=" + getCookie("key");
-                    window.location.replace("index_home.html");
+                    alert("La tua prenotazione è avvenuta con successo")
                 }
                 else 
                     if (result.message == "A reservation for the date " + result.date + " is already registered")
@@ -78,6 +77,12 @@ $(document).ready(function () {
     $("#chronology").click(function () {
         window.location.replace("index_storico.html");
 	})
+
+    $("#logout").click(function () {
+        document.cookie = "";
+        document.location.replace= "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=localhost:5000/index_login.html";
+        window.location.replace("index_login.html");
+	})
 })
 
 function getCookie(name) {
@@ -88,7 +93,3 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
-
-$(document).ready(function() {
-    $('body').toggleClass('loaded');
-});

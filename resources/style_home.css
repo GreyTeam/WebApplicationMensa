@@ -137,7 +137,7 @@ body{
 
 .option{
     margin:40px;
-    background: black;
+    background: white;
 	color: #0088c6;
 	backdrop-filter: blur(2.5px);
 }
@@ -325,10 +325,10 @@ h1 {
     border-radius: 50%;
 }
 
-/* copy and paste the animation inside all 3 elements */
-/* #loader, #loader:before, #loader:after */
+/* copy and paste the animation inside all 3 elements
+   #loader, #loader:before, #loader:after 
 -webkit-animation: spin 1.5s linear infinite;
-animation: spin 1.5s linear infinite;
+animation: spin 1.5s linear infinite; */
  
 /* include this only once */
 @-webkit-keyframes spin {
@@ -441,3 +441,10 @@ animation: spin 1.5s linear infinite;
     }
 }
 
+input {
+    -webkit-appearance: none;
+}
+
+select {
+    -webkit-appearance: none;
+}
