@@ -130,20 +130,21 @@ html {
 /*box principale*/
 
 body{										
-  margin:0;
-  padding:0;
-  font-family: 'poppins',sans-serif;
-  background-image:url(mensa1.jpg);   
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment:fixed ;
-  
-}
+    margin:0;
+    padding:0;
+    font-family: 'poppins',sans-serif;
+    background-image:url(mensa1.jpg);   
+    background-position: center center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    
+  }
 .box{
 	
   border:0;
-  width: auto;
+  width: 500px;
   padding: 30px;
   position: absolute;
   top: 50%;
