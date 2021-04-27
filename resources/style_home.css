@@ -137,7 +137,7 @@ body{
 
 .option{
     margin:40px;
-    background: black;
+    background: white;
 	color: #0088c6;
 	backdrop-filter: blur(2.5px);
 }

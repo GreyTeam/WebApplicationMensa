@@ -89,6 +89,9 @@ function getCookie(name) {
     }
 }
 
-$(document).ready(function() {
-    $('body').toggleClass('loaded');
-});
+
+	
+  
+
+
+

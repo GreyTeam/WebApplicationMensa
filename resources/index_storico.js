@@ -74,17 +74,10 @@ function getStatus(date) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 $(document).ready(function() {
-    $('body').toggleClass('loaded');
+ 
+    setTimeout(function(){
+        $('body').addClass('loaded');
+    }, 3000);
+ 
 });
