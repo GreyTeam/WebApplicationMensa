@@ -3,10 +3,10 @@ body{
   padding:0;
   font-family: 'poppins',sans-serif;
   background-image:url(mensa1.jpg);   
-  background-position: center;
+  background-position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  position: center;
   
 }
 

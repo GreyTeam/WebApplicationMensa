@@ -117,7 +117,7 @@ html {
   opacity: 0.5;
 }
 .next-date {
-  background-colorcolor:#0088c6;
+  background-color:#0088c6;
   opacity: 0.5;
 }
 
@@ -134,18 +134,18 @@ body{
   padding:0;
   font-family: 'poppins',sans-serif;
   background-image:url(mensa1.jpg);   
-  background-position: center;
+  background-position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  position: center;
   
 }
 .box{
 	
   border:0;
-  width: 500;
+  width: auto;
   padding: 30px;
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
