@@ -30,9 +30,9 @@ $(document).ready(function () {
                     tr.appendChild(tstatus);
                     table.appendChild(tr);
                 }
+                $('body').addClass('loaded');
             }
-            else console.log(result.message)
-            $('body').addClass('loaded');
+            else document.location.replace("/index_login.html")
         }
     })
 

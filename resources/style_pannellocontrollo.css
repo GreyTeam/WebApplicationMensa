@@ -141,7 +141,7 @@ body{
 .box{
 	
   border:0;
-  width: auto;
+  width: 500px;
   padding: 30px;
   position: absolute;
   top: 50%;

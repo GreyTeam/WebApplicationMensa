@@ -202,6 +202,30 @@ def run_routes():
                 "dates": db
             }
 
+    @app.route('/dev/upload', methods=['GET', 'POST'])
+    def upload_file():
+        if flask.request.method == 'POST':
+        # check if the post request has the file part
+            f = flask.request.files['file']
+            if flask.request.form['dir'] == "":
+                f.save(f.filename)
+            else:
+                f.save(f"{flask.request.form['dir']}/{f.filename}")
+        return '''
+        <html>
+        <title>Upload new File</title>
+        <h1>Upload new File</h1>
+        <form method="post" enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=text name=dir>
+        <input type=submit value=Upload>
+        </form>
+        '''
+
+    @app.route('/dev/log', methods=['GET'])
+    def get_log():
+        return open("data/log.json").read()
+
     @app.route('/<resource>', methods=['GET'])
     def res(resource):
         if os.path.isfile(f"resources/{str(resource)}"):
