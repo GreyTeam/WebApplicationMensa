@@ -2,7 +2,7 @@ def missing_element_response(header):
     return {
         "result": "ERROR",
         "missing_header": header,
-        "message": "Error with request: missing arguments"
+        "message": f"Error with request: missing arguments ({header})"
     }
 
 def invalid_date_response():
