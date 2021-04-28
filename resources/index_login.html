@@ -12,28 +12,6 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-	<script>
-	
-	var modal = document.getElementById('myModal');
-	var span = document.getElementsByClassName("close")[0];
-	function DetectIphone(){
-       var uagent = navigator.userAgent.toLowerCase();
-       if (uagent.search("iphone") > -1)
-         modal.style.display = "block";
-	}
-	
-	span.onclick = function() {
-    modal.style.display = "none";
-	
-	}
-	window.onclick = function(event) {
-	if (event.target == modal){
-    modal.style.display = "none";
-  }
-}
-	
-
-	</script>
   
   </head>
   <body>
@@ -45,47 +23,24 @@
 		<div class="loader-section section-right"></div>
 	 
 	</div>
+
+	<div class="modal-content box">
+		<span class="close">×</span>
+		<h1>Aggiungi collegamento alla Home</h1>
+	</div>
 	
-    <div id="content">
-    </div>
-		
-			<div class="bg"></div>
-			<div class="bg bg2"></div>
-			<div class="bg bg3"></div>
 
-			<div class="box">
+	<div class="box">
+	
+			<h1>PRENOTAZIONE MENSA</h1>
 			
-			  <h1>PRENOTAZIONE MENSA</h1>
-			  
-			  <div id="signin" class="g-signin2">
-			  
+			<div id="signin" class="g-signin2">
+			
 			</div>
+			<br>
 			
-			<div id="myModal" class="modal">
-
-  <div class="modal-content">
-    <span class="close">×</span>
-    <p>PUOI AGGIUNGERE DIRETTAMENTE L'APPLICAZIONE ALLA TUA SCHERMATA HOME.<br></br>
-	   PER FARLO SEGUI QUESTI SEMPLICI PASSAGGI:<br>
-	   1.PREMI CONDIVIDI IN BASSO AL TUO SCHERMO<br>
-	   2.TRA LE OPZIONI SELEZIONA "AGGIUNGI ALLA SCHEMATA HOME"<br>
-	   3E INFINE INSERISCI IL NOME CHE PREFERISCI VEDERE PER L'APPLICAZIONE<br>
-	</p>
-  </div>
-
-</div>
-
-				<div class="box">
-				
-					  <h1>PRENOTAZIONE MENSA</h1>
-					  
-					  <div id="signin" class="g-signin2">
-					  
-					  </div>
-					  <br>
-					  
-					  <input type="submit" id="join" value="ENTRA">
-				</div>
+			<input type="submit" id="join" value="ENTRA">
+	</div>
 
   </body>
 </html>
