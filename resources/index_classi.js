@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $.ajax({
-        url:"/chronology",
+        url:"/classi/lista",
         type:"POST",
         headers: { 
             "Accept" : "application/json; charset=utf-8",
@@ -9,35 +9,22 @@ $(document).ready(function () {
         },
         dataType:"json",
         success: function(result) {
-    
-            if (result.result == "OK") {
-                console.log(result.chronology)
-                table = document.getElementById("table")
-                for (let i = 0; i < result.chronology.length; i++) {
-                    var tr = document.createElement('tr');
-    
-                    var td = document.createElement('td');
-                    td.innerText = result.chronology[i];
-                    td.classList.add("cell");
-    
-                    var tstatus = document.createElement('td');
-                    status = getStatus(result.chronology[i]);
-                    console.log(status)
-                    tstatus.innerText = status;
-                    tstatus.classList.add("cell");
-              
-                    tr.appendChild(td);
-                    tr.appendChild(tstatus);
-                    table.appendChild(tr);
-                }
-                $('body').addClass('loaded');
+            select = document.getElementById("classi")
+            console.log(result.classi)
+            for (let i = 0; i < result.classi.length; i++) {
+                console.log(result.classi[i])
+                option = document.createElement("option")
+                option.text = result.classi[i]
+                option.value = result.classi[i]
+                option.classList.add("option")
+                select.add(option)    
             }
-            else document.location.replace("/index_login.html")
+            $('body').addClass('loaded');
         }
     })
 
     $("#back").click(function () {
-        window.location.replace("index_home.html");
+        
 	})
 })
 
