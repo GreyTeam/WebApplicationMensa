@@ -127,7 +127,7 @@ def run_routes():
     def classi():
         return {
             "result": "OK",
-            "classi": database_utilities.load_db("data/classi.json")
+            "classi": database_utilities.load_db("resources/classi.json")
         }
 
     @app.route('/user/info', methods=["POST"])
