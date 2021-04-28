@@ -364,9 +364,11 @@ input {
 /* The Close Button */
 .close {
   color: #aaaaaa;
+  background: none;
   float: right;
   font-size: 28px;
   font-weight: bold;
+  border: none;
 }
 
 .close:hover,

@@ -31,6 +31,7 @@ function registration(data, key) {
             console.log(result)
             if (result.result == "OK") {
                 setCookie("key", key, "");
+                $("#join").removeAttr("disabled")
             }
             else console.log("Errore")
         }
@@ -38,6 +39,10 @@ function registration(data, key) {
 	
 	$("#join").click(function () {
         window.location.replace("index_home.html");
+	})
+
+    $(".close").click(function () {
+        $(".modal-content").remove()
 	})
 	
 	$('body').addClass('loaded');
