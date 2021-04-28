@@ -123,6 +123,13 @@ def run_routes():
             "result": "OK"
         }
     
+    @app.route('/classi/lista', methods=["POST"])
+    def classi():
+        return {
+            "result": "OK",
+            "classi": database_utilities.load_db("data/classi.json")
+        }
+
     @app.route('/user/info', methods=["POST"])
     def userinfo():
         if not server_utilities.header_exist("key"):
@@ -133,8 +140,6 @@ def run_routes():
             key = server_utilities.get_header("key")
 
         user = users.search_user(key)
-
-        print(user)
 
         if user is None:
             response = responses.key_doesnt_exist()

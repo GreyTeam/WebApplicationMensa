@@ -52,6 +52,7 @@ function renderButton() {
         'theme': 'dark',
         "onsuccess": onSignIn
     });
+    $('body').addClass('loaded');
 }
 
 function setCookie(cname, cvalue) {

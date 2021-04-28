@@ -70,7 +70,6 @@ function deleteRow() {
             console.log(lastSelected)
             this.innerHTML = "";
             this.appendChild(td);
-            needToConfirm = date
         }
     })
 }

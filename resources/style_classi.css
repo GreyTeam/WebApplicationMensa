@@ -380,3 +380,7 @@ animation: spin 1.5s linear infinite;*/
 input {
     -webkit-appearance: none;
 }
+
+.selected_cell {
+    background-color: rgba(157, 255, 0, 0.4);
+}
