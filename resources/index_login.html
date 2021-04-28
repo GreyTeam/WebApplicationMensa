@@ -12,6 +12,28 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script>
+	
+	var modal = document.getElementById('myModal');
+	var span = document.getElementsByClassName("close")[0];
+	function DetectIphone(){
+       var uagent = navigator.userAgent.toLowerCase();
+       if (uagent.search("iphone") > -1)
+         modal.style.display = "block";
+	}
+	
+	span.onclick = function() {
+    modal.style.display = "none";
+	
+	}
+	window.onclick = function(event) {
+	if (event.target == modal){
+    modal.style.display = "none";
+  }
+}
+	
+
+	</script>
   
   </head>
   <body>
@@ -27,6 +49,20 @@
 			  <div id="signin" class="g-signin2">
 			  
 			</div>
+			
+			<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">×</span>
+    <p>PUOI AGGIUNGERE DIRETTAMENTE L'APPLICAZIONE ALLA TUA SCHERMATA HOME.<br></br>
+	   PER FARLO SEGUI QUESTI SEMPLICI PASSAGGI:<br>
+	   1.PREMI CONDIVIDI IN BASSO AL TUO SCHERMO<br>
+	   2.TRA LE OPZIONI SELEZIONA "AGGIUNGI ALLA SCHEMATA HOME"<br>
+	   3E INFINE INSERISCI IL NOME CHE PREFERISCI VEDERE PER L'APPLICAZIONE<br>
+	</p>
+  </div>
+
+</div>
 
 
   </body>
