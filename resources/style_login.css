@@ -61,7 +61,7 @@ body{
       color: white;
       width: auto;
       border-radius: 30px;
-	   margin-bottom:30px;
+	  margin-bottom:30px;
 }
 .box div[class = "g-signin2"]:hover{
       cursor: pointer;
@@ -341,12 +341,12 @@ animation: spin 1.5s linear infinite;*/
 input {
     -webkit-appearance: none;
 }
-.modal {
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
@@ -377,4 +377,3 @@ input {
   text-decoration: none;
   cursor: pointer;
 }
-
