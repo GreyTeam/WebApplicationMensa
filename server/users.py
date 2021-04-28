@@ -54,3 +54,14 @@ def add_user(data):
     db["users"].append(data)
     db["totale"] += 1
     save_db(db, login_file_path)
+
+def add_info(key, classe):
+    db = load_db(login_file_path)
+    for user in db["users"]:
+        for user_key in user["keys"]:
+            if user_key == key:
+                user["classe"] = classe
+                save_db(db, login_file_path)
+                return True
+            
+    return None
