@@ -62,7 +62,7 @@ function deleteRow() {
             td.colSpan = 2
             td.classList.add("cell")
             td.classList.add("selected_cell")
-            td.innerText = "Eliminare?"
+            td.innerText = "Eliminare?\n"
 
             this.classList.add("selected")
 

@@ -38,8 +38,25 @@ function registration(data, key) {
     })
 	
 	$("#join").click(function () {
-        window.location.replace("index_home.html");
-	})
+        $.ajax({
+            url:"/user/info",
+            type:"POST",
+            headers: { 
+                "Accept" : "application/json; charset=utf-8",
+                "Content-Type": "application/json; charset=utf-8",
+                "key": getCookie("key")
+            },
+            dataType:"json",
+            success: function (result) {
+                if (result.result == "OK") {
+                    if (result.classe == null)
+                        document.location.replace("/index_classi.html")
+                    else 
+                        document.location.replace("/index_home.html")
+                }
+            }
+	    })
+    })
 
     $(".close").click(function () {
         $(".modal-content").remove()
@@ -62,6 +79,15 @@ function renderButton() {
 
 function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";max-age=" + 30*24*60*60; + ";path=/";
+}
+
+function getCookie(name) {
+    const value = `;
+    ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+        return parts.pop().split(';').shift()
+    }
 }
 
 

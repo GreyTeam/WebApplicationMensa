@@ -44,16 +44,20 @@ def add_user(data):
     for i, user in enumerate(db["users"]):
         if user["email"] == data["email"]:
             if not data["key"] in user["keys"]:
+                db["users"][i]["profile_pic"] = data["profile_pic"]
                 db["users"][i]["keys"].append(data["key"])
                 save_db(db, login_file_path)
-            return
+            return True
 
     data["keys"] = [data["key"]]
     data.pop("key")
+    data["classe"] = None
 
     db["users"].append(data)
     db["totale"] += 1
     save_db(db, login_file_path)
+
+    return False
 
 def add_info(key, classe):
     db = load_db(login_file_path)

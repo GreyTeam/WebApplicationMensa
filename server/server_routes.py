@@ -111,7 +111,7 @@ def run_routes():
         else:
             profile_pic = server_utilities.get_header("profile_pic")
 
-        users.add_user({
+        _ = users.add_user({
             "nome": nome,
             "cognome": cognome,
             "key": key,
@@ -120,8 +120,10 @@ def run_routes():
         })
 
         return {
-            "result": "OK"
+            "result": "OK",
+            "new_user": _
         }
+
     
     @app.route('/classi/lista', methods=["POST"])
     def classi():
@@ -170,7 +172,8 @@ def run_routes():
         return {
             "result": "OK",
             "fullname": "{0} {1}".format(user["nome"], user["cognome"]),
-            "profile_pic": user["profile_pic"]
+            "profile_pic": user["profile_pic"],
+            "classe": user["classe"]
         }
 
     @app.route('/chronology', methods=['POST'])
