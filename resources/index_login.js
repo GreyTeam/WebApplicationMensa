@@ -9,7 +9,7 @@ function onSignIn(googleUser) {
 	alert('Email non valida!');
 	}
 	
-   // registration(profile, id_token);
+    registration(profile, id_token);
 }
 
 function registration(data, key) {
@@ -30,12 +30,17 @@ function registration(data, key) {
         success: function (result) {
             console.log(result)
             if (result.result == "OK") {
-                setCookie("key", key, "")
-                window.location.replace("index_home.html");
+                setCookie("key", key, "");
             }
             else console.log("Errore")
         }
     })
+	
+	$("#join").click(function () {
+        window.location.replace("index_home.html");
+	})
+	
+	$('body').addClass('loaded');
 }
 
 function renderButton() {
@@ -52,5 +57,20 @@ function renderButton() {
 function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";max-age=" + 30*24*60*60; + ";path=/";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

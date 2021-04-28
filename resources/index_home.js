@@ -1,4 +1,3 @@
-
 $.post(
     "/prenota/date", function(result) {
         console.log(result)
@@ -42,7 +41,7 @@ $.ajax({
             _img.src = searchPic.src;
             $('body').addClass('loaded');
 		}
-		else console.log(result.message);
+		else document.location.replace("/index_login.html")
 	}
 })
 
