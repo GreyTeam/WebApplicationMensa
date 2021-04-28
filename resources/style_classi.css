@@ -1,16 +1,19 @@
 body{										
-  margin:0;
-  padding:0;
-  font-family: 'poppins',sans-serif;
-  background-image:url(mensa1.jpg);   
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment:fixed ;
-  
+    margin:0;
+    padding:0;
+    font-family: 'poppins',sans-serif;
+    background-image:url(mensa1.jpg);   
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    overflow: hidden 
+                -moz-hidden-unscrollable;
+    touch-action: none;
+    -ms-touch-action: none;
 }
 
-.box{
+.box{	
   border:0;
   width: auto;
   padding: 30px;
@@ -26,6 +29,7 @@ body{
   text-align: center;
   border-radius: 30px;
 }
+
 .box h1{
   color:#0088c6;
   text-transform: uppercase;
@@ -33,7 +37,8 @@ body{
   font-weight: 1000;
   top: 100%;
   left: 50%;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+  font-weight: 1000;
 }
 
 .box input[type = "submit"]{
@@ -54,19 +59,53 @@ body{
   background-color: rgb(0,0,0);
   background-color: #0088c6; 
   color:white;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
-.g-signin2{
-      display: inline-block;
-      color: white;
-      width: auto;
-      border-radius: 30px;
-	   margin-bottom:30px;
+
+
+/* tabella */
+
+table {
+  font-family: 'poppins',sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 20px;
 }
-.box div[class = "g-signin2"]:hover{
-      cursor: pointer;
-	 
+
+th {
+  border-bottom: 2px solid #76b042;
+  text-align: center;
+  padding: 8px;
+  max-width:67%;
 }
+
+thead, tbody { display: block; }
+
+tbody {
+  height: 200px;       /* Just for the demo          */
+  overflow-y: auto;    /* Trigger vertical scroll    */
+  overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+.cell{
+  color: #e66129;
+  border-bottom: 2px solid #0088c6;
+  text-align: center;
+  padding: 8px;
+  width: 2%
+}
+
+.box2{
+  border-width: 2px;
+  width: auto;
+  padding: 30px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  border-radius: 20px;
+  border-color: white;
+}
+
 
 
 /*loader*/
@@ -340,41 +379,4 @@ animation: spin 1.5s linear infinite;*/
 
 input {
     -webkit-appearance: none;
-}
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
