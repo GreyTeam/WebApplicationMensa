@@ -1,3 +1,5 @@
+lastSelected = ""
+
 $(document).ready(function () {
     $.ajax({
         url:"/chronology",
@@ -30,6 +32,7 @@ $(document).ready(function () {
                     tr.appendChild(tstatus);
                     table.appendChild(tr);
                 }
+                deleteRow()
                 $('body').addClass('loaded');
             }
             else document.location.replace("/index_login.html")
@@ -40,6 +43,37 @@ $(document).ready(function () {
         window.location.replace("index_home.html");
 	})
 })
+
+function deleteRow() {
+    $("tr").click(function () {
+        date = this.childNodes[0].innerText
+
+        if (this.classList.contains("selected")) {
+            lastSelected = ""
+            $(".selected").slideUp(function() {
+                $(this).remove();
+            });
+        }
+        else {
+            $(".selected").html(lastSelected)
+            $(".selected").removeClass("selected")
+
+            var td = document.createElement('td');
+            td.colSpan = 2
+            td.classList.add("cell")
+            td.classList.add("selected_cell")
+            td.innerText = "Eliminare?"
+
+            this.classList.add("selected")
+
+            lastSelected = this.innerHTML
+            console.log(lastSelected)
+            this.innerHTML = "";
+            this.appendChild(td);
+            needToConfirm = date
+        }
+    })
+}
 
 function getCookie(name) {
     const value = `;

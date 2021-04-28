@@ -92,7 +92,7 @@ tbody {
   border-bottom: 2px solid #0088c6;
   text-align: center;
   padding: 8px;
-  width: 2%
+  width: 2%;
 }
 
 .box2{
@@ -379,4 +379,8 @@ animation: spin 1.5s linear infinite;*/
 
 input {
     -webkit-appearance: none;
+}
+
+.selected_cell {
+    background-color: rgba(255,0,0,0.2);
 }
