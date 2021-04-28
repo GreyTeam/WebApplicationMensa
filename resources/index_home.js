@@ -1,4 +1,3 @@
-
 $.post(
     "/prenota/date", function(result) {
         console.log(result)
