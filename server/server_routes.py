@@ -130,6 +130,27 @@ def run_routes():
             "classi": database_utilities.load_db("resources/classi.json")
         }
 
+    @app.route('/classi/salva', methods=["POST"])
+    def add_info():
+        if not server_utilities.header_exist("key"):
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            key = server_utilities.get_header("key")
+
+        if not server_utilities.header_exist("classe"):
+            response = responses.missing_element_response("classe")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            classe = server_utilities.get_header("classe")
+
+        if users.add_info(key, classe) is True:
+            return {
+                "result": "OK"
+            }
+
     @app.route('/user/info', methods=["POST"])
     def userinfo():
         if not server_utilities.header_exist("key"):
