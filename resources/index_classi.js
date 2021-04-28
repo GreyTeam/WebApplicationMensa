@@ -36,3 +36,25 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
+
+function parseDate(date) {
+    return new Date(currentDate.getFullYear(), parseInt(date.slice(3, 5)) - 1, date.slice(0, 2));
+}
+
+function isToday(date) {
+    currentDate = new Date();
+    parsedDate = parseDate(date);
+    console.log(currentDate);
+    console.log(parsedDate);
+    return currentDate.getDate() == parsedDate.getDate();
+}
+
+function getStatus(date) {
+    if (isToday(date)) {
+        currentTime = new Date().getHours();
+        return currentTime < 8 ? "Prenotazione non inviata" : "Prenotazione arrivata"
+    }
+    else if (parseDate(date) > new Date())
+        return "Non ancora prenotato"
+    else return "Prenotazione terminata"
+}
