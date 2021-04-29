@@ -1,3 +1,4 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 body{										
     margin:0;
     padding:0;
@@ -84,9 +85,7 @@ body{
       cursor: pointer;
 	 
 }
-
-
-/*loader*/
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 
 #loader-wrapper .loader-section {
     position: fixed;
@@ -107,7 +106,7 @@ body{
 
 
 #loader {
-    z-index: 1001; /* anything higher than z-index: 1000 of .loader-section */
+    z-index: 1001; 
 }
 h1 {
     color: #EEEEEE;
@@ -121,19 +120,18 @@ h1 {
     max-width: 978px;
 }
 
-/* Loaded */
 .loaded #loader-wrapper .loader-section.section-left {
-    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: translateX(-100%);  /* IE 9 */
-    transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transform: translateX(-100%); 
+    -ms-transform: translateX(-100%); 
+    transform: translateX(-100%);  
 	-webkit-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
 }
  
 .loaded #loader-wrapper .loader-section.section-right {
-    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
-    -ms-transform: translateX(100%);  /* IE 9 */
-    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+    -webkit-transform: translateX(100%); 
+    -ms-transform: translateX(100%); 
+    transform: translateX(100%);  
 	-webkit-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
 }
@@ -169,10 +167,6 @@ h1 {
     -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
                 transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
-
-
-/*loader wrapper*/
-
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -212,9 +206,6 @@ h1 {
     bottom: 15px;
     border: 3px solid #f9c922;
 }
-
-
-/* change border to transparent and set only border-top to a solid color */
 #loader {
     border: 3px solid transparent;
     border-top-color: #3498db;
@@ -238,35 +229,28 @@ h1 {
 #loader:after {
     border-radius: 50%;
 }
-
-/* copy and paste the animation inside all 3 elements */
-/* #loader, #loader:before, #loader:after */
-/* -webkit-animation: spin 1.5s linear infinite;
-animation: spin 1.5s linear infinite;*/
- 
-/* include this only once */
 @-webkit-keyframes spin {
     0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg);  
+        -ms-transform: rotate(0deg);  
+        transform: rotate(0deg);  
     }
     100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg); 
+        -ms-transform: rotate(360deg);  
+        transform: rotate(360deg);  
     }
 }
 @keyframes spin {
     0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);  
+        transform: rotate(0deg);  
     }
     100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg); 
+        -ms-transform: rotate(360deg);  
+        transform: rotate(360deg);  
     }
 }
 
@@ -298,8 +282,8 @@ animation: spin 1.5s linear infinite;*/
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #3498db;
-    -webkit-animation: spin 2s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-    animation: spin 2s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 2s linear infinite; 
+    animation: spin 2s linear infinite; 
 }
  
 #loader:before {
@@ -312,8 +296,8 @@ animation: spin 1.5s linear infinite;*/
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #76b042;;
-    -webkit-animation: spin 3s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-      animation: spin 3s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 3s linear infinite; 
+      animation: spin 3s linear infinite; 
 }
  
 #loader:after {
@@ -326,32 +310,32 @@ animation: spin 1.5s linear infinite;*/
     border-radius: 50%;
     border: 3px solid transparent;
     border-top-color: #e66129;
-    -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
-      animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
+    -webkit-animation: spin 1.5s linear infinite; 
+      animation: spin 1.5s linear infinite; 
 }
  
 @-webkit-keyframes spin {
     0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg); 
+        -ms-transform: rotate(0deg);  
+        transform: rotate(0deg);  
     }
     100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg);  
+        -ms-transform: rotate(360deg);  
+        transform: rotate(360deg);  
     }
 }
 @keyframes spin {
     0%   {
-        -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(0deg);  /* IE 9 */
-        transform: rotate(0deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(0deg); 
+        -ms-transform: rotate(0deg); 
+        transform: rotate(0deg);  
     }
     100% {
-        -webkit-transform: rotate(360deg);  /* Chrome, Opera 15+, Safari 3.1+ */
-        -ms-transform: rotate(360deg);  /* IE 9 */
-        transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
+        -webkit-transform: rotate(360deg);  
+        -ms-transform: rotate(360deg); 
+        transform: rotate(360deg);  
     }
 }
 
@@ -360,25 +344,23 @@ input {
 }
 
 #overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
+  position: fixed; 
+  display: none; 
+  width: 100%; 
+  height: 100%;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
 }
 
-/* Modal Content */
 .modal-content {
   z-index: 2;
 	background-color: white;
 }
 
-/* The Close Button */
 .close {
   color: #aaaaaa;
   background: none;
@@ -394,3 +376,4 @@ input {
   text-decoration: none;
   cursor: pointer;
 }
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */

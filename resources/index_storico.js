@@ -1,3 +1,5 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
 lastSelected = ""
 lastDate = ""
 
@@ -120,3 +122,5 @@ function getStatus(date) {
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
 }
+
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */

@@ -1,3 +1,5 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
 $(document).ready(function () {
     $.ajax({
         url:"/classi/lista",
@@ -72,3 +74,5 @@ function getStatus(date) {
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
 }
+
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
