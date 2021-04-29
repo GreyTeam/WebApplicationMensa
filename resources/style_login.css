@@ -1,16 +1,16 @@
 body{										
-  margin:0;
-  padding:0;
-  font-family: 'poppins',sans-serif;
-  background-image:url(mensa1.jpg);   
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment:fixed ;
-  
-}
+    margin:0;
+    padding:0;
+    font-family: 'poppins',sans-serif;
+    background-image:url(mensa1.jpg);   
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed ;
+    
+  }
 
-.box{
+.box{	
   border:0;
   width: auto;
   padding: 30px;
@@ -26,7 +26,9 @@ body{
   text-align: center;
   border-radius: 30px;
 }
+
 .box h1{
+  
   color:#0088c6;
   text-transform: uppercase;
   text-align: center;
