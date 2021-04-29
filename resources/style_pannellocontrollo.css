@@ -1,3 +1,4 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +12,6 @@ html {
 
 .container {
   width: 100%;
-  /*height: 100vh;*/
   background-color: none;
   color: #0088c6;
   display: flex;
@@ -21,8 +21,6 @@ html {
 }
 
 .calendar {
- /*width: 50%;*/
- /* height: 50%;*/
   background-color: none;
   padding:20px;
   
@@ -62,7 +60,6 @@ html {
 
 .weekdays {
   width: 100%;
-  /*height: 5rem;*/
   padding: 0 0.4rem;
   display: flex;
   align-items: center;
@@ -99,7 +96,7 @@ html {
   font-weight: 1000;
 
 }
-
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 .days div:hover:not(.today) {
   background-color: #76b042;
   border: 0.2rem solid #76b042;
@@ -123,9 +120,6 @@ html {
   background-color: #76b042;
  
 }
-
-
-/*box principale*/
 
 body{										
     margin:0;
@@ -179,8 +173,6 @@ body{
   transition: 0.25s;
   cursor: pointer;
   margin-top: 30px;
-  
-  
 }
 .box input[type = "submit"]:hover{
   background-color: rgb(0,0,0);
@@ -188,3 +180,4 @@ body{
   color:white;
   backdrop-filter: blur(10px);
 }
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
