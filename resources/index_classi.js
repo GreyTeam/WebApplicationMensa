@@ -35,8 +35,17 @@ $(document).ready(function () {
             },
             dataType:"json",
             success: function(result) {
-                if (result.result == "OK")
-                    window.location.replace("index_home.html")
+                select = document.getElementById("classi")
+                console.log(result.classi)
+                for (let i = 0; i < result.classi.length; i++) {
+                    console.log(result.classi[i])
+                    option = document.createElement("option")
+                    option.text = result.classi[i]
+                    option.value = result.classi[i]
+                    option.classList.add("option")
+                    select.add(option)    
+                }
+                $('body').addClass('loaded');
             }
         })
 	})
