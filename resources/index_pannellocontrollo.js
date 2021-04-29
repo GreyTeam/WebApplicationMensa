@@ -1,3 +1,5 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
 const date = new Date();
 var selected = []
 
@@ -158,3 +160,5 @@ $(document).ready(() => {
 	
 })
 
+
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */

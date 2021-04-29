@@ -1,3 +1,5 @@
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
 $.post(
     "/prenota/date", function(result) {
         console.log(result)
@@ -92,3 +94,5 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
+
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
