@@ -10,7 +10,7 @@ $(document).ready(function () {
         dataType:"json",
         success: function(result) {
             select = document.getElementById("classi")
-            console.log(result.classi)
+            result.classi = result.classi.sort()
             for (let i = 0; i < result.classi.length; i++) {
                 console.log(result.classi[i])
                 option = document.createElement("option")

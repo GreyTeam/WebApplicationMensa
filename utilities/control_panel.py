@@ -27,8 +27,6 @@ def create_xlsx_file():
 
     for i, user in enumerate(data):
 
-        print(i)
-
         worksheet.write(i+1, 0, user["cognome"], bold)
         width = len(user["cognome"])
         if lastname_max_width < width:

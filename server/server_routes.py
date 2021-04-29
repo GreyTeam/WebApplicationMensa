@@ -97,14 +97,16 @@ def run_routes():
             "nome": user["nome"],
             "cognome": user["cognome"],
             "date": date,
-            "email": user["email"]
+            "email": user["email"],
+            "classe": user["classe"]
         }
 
-        print(prenotazione)
-
-        db["prenotazioni"].remove(prenotazione)
-
-        database_utilities.save_db(db, database_utilities.prenotazioni_file_path)
+        try:
+            db["prenotazioni"].remove(prenotazione)
+            db["totale"] -= 1
+            database_utilities.save_db(db, database_utilities.prenotazioni_file_path)
+        except Exception:
+            pass
 
         return {
             "result": "OK"
