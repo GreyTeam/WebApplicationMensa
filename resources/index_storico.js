@@ -1,4 +1,5 @@
 lastSelected = ""
+lastDate = ""
 
 $(document).ready(function () {
     $.ajax({
@@ -50,9 +51,24 @@ function deleteRow() {
 
         if (this.classList.contains("selected")) {
             lastSelected = ""
-            $(".selected").slideUp(function() {
-                $(this).remove();
-            });
+            $.ajax({
+                url:"/prenota/rimuovi",
+                type:"POST",
+                headers: { 
+                    "Accept" : "application/json; charset=utf-8",
+                    "Content-Type": "application/json; charset=utf-8",
+                    "key": getCookie("key"),
+                    "x-date": lastDate
+                },
+                dataType:"json",
+                success: function(result) {
+            
+                    if (result.result == "OK") {
+                        alert("Prenotazione eliminata con successo")
+                        $(".selected").remove();
+                    }
+                }
+            })
         }
         else {
             $(".selected").html(lastSelected)
@@ -66,8 +82,8 @@ function deleteRow() {
 
             this.classList.add("selected")
 
+            lastDate = date
             lastSelected = this.innerHTML
-            console.log(lastSelected)
             this.innerHTML = "";
             this.appendChild(td);
         }

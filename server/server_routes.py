@@ -68,10 +68,45 @@ def run_routes():
     @app.route("/prenota/date", methods=['POST'])
     def date():
         dates_list = dates.create_days_list()
-        print(dates_list)
         return {
             "number_of_dates": len(dates_list),
             "dates": dates_list
+        } 
+
+    @app.route("/prenota/rimuovi", methods=['POST'])
+    def remove_date():
+        if not server_utilities.header_exist("key"):
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            key = server_utilities.get_header("key")
+
+        if not server_utilities.header_exist("x-date"):
+            response = responses.missing_element_response("x-date")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            date = server_utilities.get_header("x-date")
+        
+        user = users.search_user(key)
+        db = database_utilities.load_db(database_utilities.prenotazioni_file_path)
+
+        prenotazione = {
+            "nome": user["nome"],
+            "cognome": user["cognome"],
+            "date": date,
+            "email": user["email"]
+        }
+
+        print(prenotazione)
+
+        db["prenotazioni"].remove(prenotazione)
+
+        database_utilities.save_db(db, database_utilities.prenotazioni_file_path)
+
+        return {
+            "result": "OK"
         } 
 
     @app.route("/registration", methods=['POST'])
