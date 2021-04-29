@@ -147,9 +147,7 @@ $(document).ready(() => {
 	})
 
 	document.querySelector(".prev").addEventListener("click", () => {
-		console.log(date)
 		date.setMonth(date.getMonth() - 1);
-		console.log(date)
 		renderCalendar();
 	});
 

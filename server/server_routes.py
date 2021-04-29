@@ -53,7 +53,8 @@ def run_routes():
                     "nome": user["nome"],
                     "cognome": user["cognome"],
                     "date": date,
-                    "email": user["email"]
+                    "email": user["email"],
+                    "classe": user["classe"]
                 })
         else:
             response = responses.key_doesnt_exist()
@@ -146,16 +147,18 @@ def run_routes():
         else:
             profile_pic = server_utilities.get_header("profile_pic")
 
-        users.add_user({
+        _ = users.add_user({
             "nome": nome,
             "cognome": cognome,
             "key": key,
             "profile_pic": profile_pic,
-            "email": email
+            "email": email,
+            "classe": None
         })
 
         return {
-            "result": "OK"
+            "result": "OK",
+            "new_user": _
         }
     
     @app.route('/classi/lista', methods=["POST"])
@@ -205,7 +208,8 @@ def run_routes():
         return {
             "result": "OK",
             "fullname": "{0} {1}".format(user["nome"], user["cognome"]),
-            "profile_pic": user["profile_pic"]
+            "profile_pic": user["profile_pic"],
+            "classe": user["classe"]
         }
 
     @app.route('/chronology', methods=['POST'])
