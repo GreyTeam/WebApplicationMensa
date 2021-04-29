@@ -53,9 +53,9 @@ function registration(data, key) {
             success: function (result) {
                 if (result.result == "OK") {
                     if (result.classe == null)
-                        document.location.replace("/index_classi.html")
+                        document.location.replace("/classi")
                     else 
-                        document.location.replace("/index_home.html")
+                        document.location.replace("/home")
                 }
             }
 	    })

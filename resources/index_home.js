@@ -41,7 +41,7 @@ $.ajax({
             _img.src = searchPic.src;
             $('body').addClass('loaded');
 		}
-		else document.location.replace("/index_login.html")
+		else document.location.replace("/login")
 	}
 })
 
@@ -74,13 +74,13 @@ $(document).ready(function () {
 	})
 
     $("#chronology").click(function () {
-        window.location.replace("index_storico.html");
+        window.location.replace("/storico");
 	})
 
     $("#logout").click(function () {
         document.cookie = "";
         document.location.replace= "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=localhost:5000/index_login.html";
-        window.location.replace("index_login.html");
+        window.location.replace("/login");
 	})
 })
 

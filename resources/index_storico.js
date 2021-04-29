@@ -36,12 +36,12 @@ $(document).ready(function () {
                 deleteRow()
                 $('body').addClass('loaded');
             }
-            else document.location.replace("/index_login.html")
+            else document.location.replace("/login")
         }
     })
 
     $("#back").click(function () {
-        window.location.replace("index_home.html");
+        window.location.replace("/home");
 	})
 })
 

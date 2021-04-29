@@ -40,8 +40,28 @@ def setup_routes(flask_app):
 def run_routes():
 
     @app.route('/', methods=['GET'])
-    def home():
+    def route_null():
         return open(f"resources/index_login.html").read()
+
+    @app.route('/login', methods=['GET'])
+    def route_login():
+        return open(f"resources/index_login.html").read()
+
+    @app.route('/home', methods=['GET'])
+    def route_home():
+        return open(f"resources/index_home.html").read()
+
+    @app.route('/storico', methods=['GET'])
+    def route_storico():
+        return open(f"resources/index_storico.html").read()
+
+    @app.route('/classi', methods=['GET'])
+    def route_classi():
+        return open(f"resources/index_pannellocontrollo.html").read()
+
+    @app.route('/segreteria', methods=['GET'])
+    def route_segreteria():
+        return open(f"resources/index_pannellocontrollo.html").read()
 
     # Prenota
     @app.route("/prenota", methods=['POST'])

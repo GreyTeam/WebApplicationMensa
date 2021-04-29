@@ -36,7 +36,7 @@ $(document).ready(function () {
             dataType:"json",
             success: function(result) {
                 if (result.result == "OK")
-                    window.location.replace("index_home.html")
+                    window.location.replace("/home")
             }
         })
 	})
