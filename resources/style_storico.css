@@ -87,6 +87,10 @@ tbody {
   overflow-x: hidden;  /* Hide the horizontal scroll */
 }
 
+tr {
+	height: 53px;
+}
+
 .cell{
   color: #e66129;
   border-bottom: 2px solid #0088c6;
@@ -383,4 +387,5 @@ input {
 
 .selected_cell {
     background-color: rgba(255,0,0,0.2);
+	max-height:auto;
 }
