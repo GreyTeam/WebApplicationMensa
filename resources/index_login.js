@@ -5,10 +5,12 @@ function onSignIn(googleUser) {
 	console.log('Email: ' + profile.getEmail()); 
   
 	if(!profile.getEmail().includes('@istitutopilati.it')){
-	alert('Email non valida!');
+	    alert('Email non valida!');
 	}
-	
-    registration(profile, id_token);
+	else {
+        registration(profile, id_token);
+    }
+    
 }
 
 function registration(data, key) {
@@ -30,7 +32,8 @@ function registration(data, key) {
             console.log(result)
             if (result.result == "OK") {
                 setCookie("key", key, "");
-                $("#join").removeAttr("disabled")
+                $(".not-logged").addClass("logged")
+                $(".not-logged").removeClass("not-logged")
             }
             else console.log("Errore")
         }
