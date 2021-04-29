@@ -74,16 +74,6 @@ const renderCalendar = () => {
 		}
 	})
 
-	document.querySelector(".prev").addEventListener("click", () => {
-		date.setMonth(date.getMonth() - 1);
-		renderCalendar();
-	});
-
-	document.querySelector(".next").addEventListener("click", () => {
-		date.setMonth(date.getMonth() + 1);
-		renderCalendar();
-	});
-
 	function setupDates() {
 
 		for (let x = firstDayIndex; x > 0; x--) {
@@ -155,6 +145,18 @@ $(document).ready(() => {
 		})
 		console.log("Finito")
 	})
+
+	document.querySelector(".prev").addEventListener("click", () => {
+		console.log(date)
+		date.setMonth(date.getMonth() - 1);
+		console.log(date)
+		renderCalendar();
+	});
+
+	document.querySelector(".next").addEventListener("click", () => {
+		date.setMonth(date.getMonth() + 1);
+		renderCalendar();
+	});
 	
 })
 

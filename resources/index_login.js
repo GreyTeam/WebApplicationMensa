@@ -34,6 +34,7 @@ function registration(data, key) {
                 setCookie("key", key, "");
                 $(".not-logged").addClass("logged")
                 $(".not-logged").removeClass("not-logged")
+                $("#join").removeAttr("disabled")
             }
             else console.log("Errore")
         }
