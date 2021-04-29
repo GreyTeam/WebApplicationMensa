@@ -374,4 +374,20 @@ input {
     background-color: rgba(255,0,0,0.2);
 	max-height:auto;
 }
+<<<<<<< HEAD
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+=======
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height:auto;
+    background-color: none;
+    color: #e66129;
+    text-align: center;
+    font-size: 9px;
+    font-weight: bold;
+ }
+>>>>>>> main

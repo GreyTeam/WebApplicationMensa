@@ -12,6 +12,7 @@ body{
                 -moz-hidden-unscrollable;
     touch-action: none;
     -ms-touch-action: none;
+    -webkit-appearance: none;
 }
 
 .box{	
