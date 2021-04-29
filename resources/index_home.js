@@ -2,7 +2,6 @@
 
 $.post(
     "/prenota/date", function(result) {
-        console.log(result)
         select = document.getElementById("dates")
         if (result.number_of_dates == 0) {
             option = document.createElement("option")
@@ -34,11 +33,9 @@ $.ajax({
 	dataType:"json",
 	success: function (result) {
 		if (result.result == "OK") {
-            console.log(result)
 			document.getElementById("username").innerText = "Buongiorno\n"+ result.fullname;
             searchPic = new Image();
             searchPic.src = result.profile_pic;
-            console.log(searchPic);
             var _img = document.getElementById('userimage');
             _img.src = searchPic.src;
             $('body').addClass('loaded');
@@ -62,7 +59,6 @@ $(document).ready(function () {
             },
             dataType:"json",
             success: function (result) {
-                console.log(result)
                 if (result.result == "OK") {
                     alert("La tua prenotazione è avvenuta con successo")
                 }

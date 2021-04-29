@@ -70,7 +70,6 @@ def create_days_list():
 
 def verify_date(date):
     d_list = create_days_list()
-    print(d_list)
     for d in d_list:
         if d["value"] == date:
             return True

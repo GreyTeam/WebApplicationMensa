@@ -16,7 +16,6 @@ $(document).ready(function () {
         success: function(result) {
     
             if (result.result == "OK") {
-                console.log(result.chronology)
                 table = document.getElementById("table")
                 for (let i = 0; i < result.chronology.length; i++) {
                     var tr = document.createElement('tr');
@@ -27,7 +26,6 @@ $(document).ready(function () {
     
                     var tstatus = document.createElement('td');
                     status = getStatus(result.chronology[i]);
-                    console.log(status)
                     tstatus.innerText = status;
                     tstatus.classList.add("cell");
               
@@ -108,8 +106,6 @@ function parseDate(date) {
 function isToday(date) {
     currentDate = new Date();
     parsedDate = parseDate(date);
-    console.log(currentDate);
-    console.log(parsedDate);
     return currentDate.getDate() == parsedDate.getDate();
 }
 

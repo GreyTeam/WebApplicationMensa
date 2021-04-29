@@ -299,8 +299,6 @@ def run_routes():
         else:
             x_set = server_utilities.get_header("set")
 
-        print(x_set)
-
         if x_set == "true":
         
             database_utilities.save_db(flask.request.get_json(), database_utilities.dates_file_path)

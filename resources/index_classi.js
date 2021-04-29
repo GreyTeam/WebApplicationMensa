@@ -14,7 +14,6 @@ $(document).ready(function () {
             select = document.getElementById("classi")
             result.classi = result.classi.sort()
             for (let i = 0; i < result.classi.length; i++) {
-                console.log(result.classi[i])
                 option = document.createElement("option")
                 option.text = result.classi[i]
                 option.value = result.classi[i]
@@ -60,8 +59,6 @@ function parseDate(date) {
 function isToday(date) {
     currentDate = new Date();
     parsedDate = parseDate(date);
-    console.log(currentDate);
-    console.log(parsedDate);
     return currentDate.getDate() == parsedDate.getDate();
 }
 

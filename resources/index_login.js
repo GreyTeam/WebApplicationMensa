@@ -3,9 +3,7 @@
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var id_token = googleUser.getAuthResponse().id_token;
-	
-	console.log('Email: ' + profile.getEmail()); 
-  
+
 	if(!profile.getEmail().includes('@istitutopilati.it')){
 	    alert('Email non valida!');
 	}
@@ -16,7 +14,7 @@ function onSignIn(googleUser) {
 }
 
 function registration(data, key) {
-    console.log(key);
+
     $.ajax({
         url:"/registration",
         type:"POST",
@@ -31,14 +29,12 @@ function registration(data, key) {
         },
         dataType:"json",
         success: function (result) {
-            console.log(result)
             if (result.result == "OK") {
                 setCookie("key", key, "");
                 $(".not-logged").addClass("logged")
                 $(".not-logged").removeClass("not-logged")
                 $("#join").removeAttr("disabled")
             }
-            else console.log("Errore")
         }
     })
 	

@@ -131,7 +131,6 @@ $(document).ready(() => {
 	})
 
 	$("#download").click(function () {
-		console.log("result")
 		$.ajax({
 			url:"/admin/prenotazioni",
 			type:"GET",
@@ -140,12 +139,8 @@ $(document).ready(() => {
     		processData: false,
 			success: function(result) {
 				
-			},
-			failure: function(result) {
-				console.log(result)
 			}
 		})
-		console.log("Finito")
 	})
 
 	document.querySelector(".prev").addEventListener("click", () => {
