@@ -38,7 +38,7 @@ body{
   margin-bottom: 20px;
 }
 
-.box input[type = "submit"]{
+.logged {
   border:0;
   background: none;
   margin: auto;
@@ -52,12 +52,35 @@ body{
   cursor: pointer;
   
 }
-.box input[type = "submit"]:hover{
+.logged:hover{
   background-color: rgb(0,0,0);
   background-color: #0088c6; 
   color:white;
   backdrop-filter: blur(10px);
 }
+
+.not-logged {
+  border:0;
+  background: none;
+  margin: auto;
+  text-align: center;
+  border: 2px solid #7d7d7d;
+  padding: 20px 50px;
+  outline: none;
+  color: #7d7d7d;
+  border-radius: 30px;
+  transition: 0.25s;
+  cursor: pointer;
+  
+}
+
+.not-logged:hover{
+  background-color: rgb(0,0,0);
+  background-color: #7d7d7d; 
+  color:white;
+  backdrop-filter: blur(10px);
+}
+
 .g-signin2{
       display: inline-block;
       color: white;
