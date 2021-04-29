@@ -1,9 +1,10 @@
 <html>
   <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+	
     <title>LOGIN</title>
 	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style_login.css" >
+    <link rel="stylesheet" href="style_login.css"  >
+	<link rel="icon" href="spaghetti.png" type="png">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="index_login.js"></script>   
 	
@@ -14,17 +15,33 @@
   
   </head>
   <body>
-		<div class="bg"></div>
-		<div class="bg bg2"></div>
-		<div class="bg bg3"></div>
+  
+	<div id="loader-wrapper">
+		<div id="loader"></div>
+	 
+		<div class="loader-section section-left"></div>
+		<div class="loader-section section-right"></div>
+	 
+	</div>
 
+	<div class="modal-content box">
+		<button class="close">x</button>
+		<h1>Aggiungi collegamento alla Home</h1>
+		<img src="tutorial.gif">
+	</div>
+	
 
-			<div class="box name="viewport" content="width=device-width, initial-scale=1"">
+	<div class="box">
+	
+			<h1>PRENOTAZIONE MENSA</h1>
 			
-			  <h1>EFFETTUA IL LOG-IN:</h1>
-			  
-			  <div id="signin" class="g-signin2"> </div>
-
+			<div id="signin" class="g-signin2">
+			
+			</div>
+			<br>
+			
+			<input type="submit" id="join" disabled value="ENTRA">
+	</div>
 
   </body>
 </html>

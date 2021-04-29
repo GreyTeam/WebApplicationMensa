@@ -1,45 +1,78 @@
+lastSelected = ""
+
 $(document).ready(function () {
+    $.ajax({
+        url:"/chronology",
+        type:"POST",
+        headers: { 
+            "Accept" : "application/json; charset=utf-8",
+            "Content-Type": "application/json; charset=utf-8",
+            "key": getCookie("key"),
+        },
+        dataType:"json",
+        success: function(result) {
+    
+            if (result.result == "OK") {
+                console.log(result.chronology)
+                table = document.getElementById("table")
+                for (let i = 0; i < result.chronology.length; i++) {
+                    var tr = document.createElement('tr');
+    
+                    var td = document.createElement('td');
+                    td.innerText = result.chronology[i];
+                    td.classList.add("cell");
+    
+                    var tstatus = document.createElement('td');
+                    status = getStatus(result.chronology[i]);
+                    console.log(status)
+                    tstatus.innerText = status;
+                    tstatus.classList.add("cell");
+              
+                    tr.appendChild(td);
+                    tr.appendChild(tstatus);
+                    table.appendChild(tr);
+                }
+                deleteRow()
+                $('body').addClass('loaded');
+            }
+            else document.location.replace("/index_login.html")
+        }
+    })
 
     $("#back").click(function () {
         window.location.replace("index_home.html");
 	})
 })
 
-$.ajax({
-    url:"/chronology",
-    type:"POST",
-    headers: { 
-        "Accept" : "application/json; charset=utf-8",
-        "Content-Type": "application/json; charset=utf-8",
-        "key": getCookie("key"),
-    },
-    dataType:"json",
-    success: function(result) {
+function deleteRow() {
+    $("tr").click(function () {
+        date = this.childNodes[0].innerText
 
-        if (result.result == "OK") {
-            console.log(result.chronology)
-            table = document.getElementById("table")
-            for (let i = 0; i < result.chronology.length; i++) {
-                var tr = document.createElement('tr');
-
-                var td = document.createElement('td');
-                td.innerText = result.chronology[i];
-                td.classList.add("cell");
-
-                var tstatus = document.createElement('td');
-                status = getStatus(result.chronology[i]);
-                console.log(status)
-                tstatus.innerText = status;
-                tstatus.classList.add("cell");
-          
-                tr.appendChild(td);
-                tr.appendChild(tstatus);
-                table.appendChild(tr);
-            }
+        if (this.classList.contains("selected")) {
+            lastSelected = ""
+            $(".selected").slideUp(function() {
+                $(this).remove();
+            });
         }
-        else console.log(result.message)
-    }
-})
+        else {
+            $(".selected").html(lastSelected)
+            $(".selected").removeClass("selected")
+
+            var td = document.createElement('td');
+            td.colSpan = 2
+            td.classList.add("cell")
+            td.classList.add("selected_cell")
+            td.innerText = "Eliminare?\n"
+
+            this.classList.add("selected")
+
+            lastSelected = this.innerHTML
+            console.log(lastSelected)
+            this.innerHTML = "";
+            this.appendChild(td);
+        }
+    })
+}
 
 function getCookie(name) {
     const value = `;
@@ -71,24 +104,3 @@ function getStatus(date) {
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
 }
-
-
-
-
-
-
-
-
-
-
-
-$('body').toggleClass('loaded');
-
-$(document).ready(function() {
- 
-    setTimeout(function(){
-        $('body').addClass('loaded');
-        
-    }, 1000);
- 
-});

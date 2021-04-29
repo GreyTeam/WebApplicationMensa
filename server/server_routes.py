@@ -111,7 +111,7 @@ def run_routes():
         else:
             profile_pic = server_utilities.get_header("profile_pic")
 
-        users.add_user({
+        _ = users.add_user({
             "nome": nome,
             "cognome": cognome,
             "key": key,
@@ -120,9 +120,39 @@ def run_routes():
         })
 
         return {
-            "result": "OK"
+            "result": "OK",
+            "new_user": _
         }
+
     
+    @app.route('/classi/lista', methods=["POST"])
+    def classi():
+        return {
+            "result": "OK",
+            "classi": database_utilities.load_db("resources/classi.json")
+        }
+
+    @app.route('/classi/salva', methods=["POST"])
+    def add_info():
+        if not server_utilities.header_exist("key"):
+            response = responses.missing_element_response("key")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            key = server_utilities.get_header("key")
+
+        if not server_utilities.header_exist("classe"):
+            response = responses.missing_element_response("classe")
+            log.log("MISSING", response["message"], server_utilities.get_headers_list())
+            return response
+        else:
+            classe = server_utilities.get_header("classe")
+
+        if users.add_info(key, classe) is True:
+            return {
+                "result": "OK"
+            }
+
     @app.route('/user/info', methods=["POST"])
     def userinfo():
         if not server_utilities.header_exist("key"):
@@ -134,8 +164,6 @@ def run_routes():
 
         user = users.search_user(key)
 
-        print(user)
-
         if user is None:
             response = responses.key_doesnt_exist()
             log.log("KEY", response["message"], server_utilities.get_headers_list())
@@ -144,7 +172,8 @@ def run_routes():
         return {
             "result": "OK",
             "fullname": "{0} {1}".format(user["nome"], user["cognome"]),
-            "profile_pic": user["profile_pic"]
+            "profile_pic": user["profile_pic"],
+            "classe": user["classe"]
         }
 
     @app.route('/chronology', methods=['POST'])
@@ -201,6 +230,30 @@ def run_routes():
                 "result": "OK",
                 "dates": db
             }
+
+    @app.route('/dev/upload', methods=['GET', 'POST'])
+    def upload_file():
+        if flask.request.method == 'POST':
+        # check if the post request has the file part
+            f = flask.request.files['file']
+            if flask.request.form['dir'] == "":
+                f.save(f.filename)
+            else:
+                f.save(f"{flask.request.form['dir']}/{f.filename}")
+        return '''
+        <html>
+        <title>Upload new File</title>
+        <h1>Upload new File</h1>
+        <form method="post" enctype=multipart/form-data>
+        <input type=file name=file>
+        <input type=text name=dir>
+        <input type=submit value=Upload>
+        </form>
+        '''
+
+    @app.route('/dev/log', methods=['GET'])
+    def get_log():
+        return open("data/log.json").read()
 
     @app.route('/<resource>', methods=['GET'])
     def res(resource):

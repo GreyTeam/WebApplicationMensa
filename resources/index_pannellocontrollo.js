@@ -138,6 +138,23 @@ $(document).ready(() => {
 		})
 	})
 
+	$("#download").click(function () {
+		console.log("result")
+		$.ajax({
+			url:"/admin/prenotazioni",
+			type:"GET",
+			dataType: 'binary',
+			headers: {},
+    		processData: false,
+			success: function(result) {
+				
+			},
+			failure: function(result) {
+				console.log(result)
+			}
+		})
+		console.log("Finito")
+	})
 	
 })
 

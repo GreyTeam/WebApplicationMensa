@@ -23,28 +23,22 @@ def get_next_day(delta, year=True):
 def is_holiday(date):
     db = load_db(dates_file_path)
     day = datetime.datetime.strptime(date, "%d/%m/%Y")
-    print(day)
     for date_db in db:
-        start = datetime.datetime.strptime(date_db["from"], "%d/%m/%Y")
-        end = datetime.datetime.strptime(date_db["to"], "%d/%m/%Y")
-        if start <= day <= end:
-            print(True)
+        date_parsed = datetime.datetime.strptime(date_db, "%d/%m/%y")
+        if day == date_parsed:
             return True
-    print(False)
     return False
 
 def create_days_list():
     days = []
     delta = 0
     for day in range(8):
-        print(day)
         day_value = get_next_day(day + delta)
         day_to_string = day_value["value"] + f"/{str(datetime.datetime.now().year)}"
         if days_name[datetime.datetime.strptime(day_to_string, "%d/%m/%Y").weekday()] == "Sab":
             delta += 1
         else:
             if not is_holiday(get_next_day(day + delta, year=False)):
-                print(day_value)
                 days.append(day_value)
     return days
 
