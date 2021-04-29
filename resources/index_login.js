@@ -80,6 +80,7 @@ function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + ";max-age=" + 30*24*60*60; + ";path=/";
 }
 
+<<<<<<< Updated upstream
 function getCookie(name) {
     const value = `;
     ${document.cookie}`;
@@ -88,3 +89,25 @@ function getCookie(name) {
         return parts.pop().split(';').shift()
     }
 }
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
