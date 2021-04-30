@@ -36,8 +36,12 @@ $(document).ready(function () {
             },
             dataType:"json",
             success: function(result) {
-                if (result.result == "OK")
-                    window.location.replace("/home")
+                if (result.result == "OK") {
+                    closeAnimation()
+                    setInterval(function () {
+                        window.location.replace("/home")
+                    }, 1000)
+                }
             }
         })
 	})
@@ -70,6 +74,10 @@ function getStatus(date) {
     else if (parseDate(date) > new Date())
         return "Non ancora prenotato"
     else return "Prenotazione terminata"
+}
+
+function closeAnimation() {
+    $('body').addClass('closed');
 }
 
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */

@@ -130,31 +130,38 @@ tr {
 
 
 #loader {
-    z-index: 1001;
-}
-h1 {
-    color: #EEEEEE;
+    z-index: 1001; 
 }
 
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 
-#content {
-    margin: 0 auto;
-    padding-bottom: 50px;
-    width: 80%;
-    max-width: 978px;
+#closer-wrapper .closer-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #ffffff;
+}
+ 
+#closer-wrapper .closer-section.section-left {
+    left: -52%;
+}
+ 
+#closer-wrapper .closer-section.section-right {
+    right: -52%;
 }
 
 .loaded #loader-wrapper .loader-section.section-left {
-    -webkit-transform: translateX(-100%);  
-    -ms-transform: translateX(-100%); 
+    -webkit-transform: translateX(-100%); 
+    -ms-transform: translateX(-100%);  
     transform: translateX(-100%);  
 	-webkit-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
 }
  
 .loaded #loader-wrapper .loader-section.section-right {
-    -webkit-transform: translateX(100%);
-    -ms-transform: translateX(100%); 
+    -webkit-transform: translateX(100%);  
+    -ms-transform: translateX(100%);  
     transform: translateX(100%);  
 	-webkit-transition: all 0.3s ease-out;
             transition: all 0.3s ease-out;
@@ -175,28 +182,18 @@ h1 {
             transition: all 0.3s ease-out;
 }
 
-.loaded #loader-wrapper {
-        -webkit-transform: translateY(-100%);
-            -ms-transform: translateY(-100%);
-                transform: translateY(-100%);
- 
-		-webkit-transition: all 0.3s 1s ease-out;
-                transition: all 0.3s 1s ease-out;
-}
-
-
 .loaded #loader-wrapper .loader-section.section-right,
 .loaded #loader-wrapper .loader-section.section-left {
  
     -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
                 transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
-/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
 #loader-wrapper {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 0%;
     height: 100%;
     z-index: 1000;
 }
@@ -222,6 +219,7 @@ h1 {
     bottom: 5px;
     border: 3px solid #76b042;
 }
+
 #loader:after {
     content: "";
     position: absolute;
@@ -260,10 +258,10 @@ h1 {
     0%   {
         -webkit-transform: rotate(0deg);  
         -ms-transform: rotate(0deg); 
-        transform: rotate(0deg);  
+        transform: rotate(0deg); 
     }
     100% {
-        -webkit-transform: rotate(360deg); 
+        -webkit-transform: rotate(360deg);  
         -ms-transform: rotate(360deg);  
         transform: rotate(360deg);  
     }
@@ -272,7 +270,7 @@ h1 {
     0%   {
         -webkit-transform: rotate(0deg);  
         -ms-transform: rotate(0deg); 
-        transform: rotate(0deg); 
+        transform: rotate(0deg);  
     }
     100% {
         -webkit-transform: rotate(360deg);  
@@ -345,7 +343,7 @@ h1 {
     0%   {
         -webkit-transform: rotate(0deg);  
         -ms-transform: rotate(0deg);  
-        transform: rotate(0deg);  
+        transform: rotate(0deg); 
     }
     100% {
         -webkit-transform: rotate(360deg);  
@@ -355,16 +353,53 @@ h1 {
 }
 @keyframes spin {
     0%   {
-        -webkit-transform: rotate(0deg);  
-        -ms-transform: rotate(0deg); 
-        transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg); 
+        -ms-transform: rotate(0deg);  
+        transform: rotate(0deg);  
     }
     100% {
         -webkit-transform: rotate(360deg);  
-        -ms-transform: rotate(360deg); 
+        -ms-transform: rotate(360deg);  
         transform: rotate(360deg);  
     }
 }
+
+.closed #closer-wrapper .closer-section.section-left {
+    -webkit-transform: translateX(100%); 
+    -ms-transform: translateX(100%);  
+    transform: translateX(100%);  
+	-webkit-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+ 
+.closed #closer-wrapper .closer-section.section-right {
+    -webkit-transform: translateX(-100%);  
+    -ms-transform: translateX(-100%);  
+    transform: translateX(-100%);  
+	-webkit-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+
+.closed #closer-wrapper {
+    visibility: visible;
+    z-index: 1000;
+}
+
+.closed #closer-wrapper .closer-section.section-right,
+.closed #closer-wrapper .closer-section.section-left {
+ 
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+#closer-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 
 input {
     -webkit-appearance: none;
@@ -374,9 +409,8 @@ input {
     background-color: rgba(255,0,0,0.2);
 	max-height:auto;
 }
-<<<<<<< HEAD
+
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
-=======
 
 .footer {
     position: fixed;
@@ -390,4 +424,3 @@ input {
     font-size: 9px;
     font-weight: bold;
  }
->>>>>>> main

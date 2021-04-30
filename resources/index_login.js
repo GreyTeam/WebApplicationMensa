@@ -50,10 +50,13 @@ function registration(data, key) {
             dataType:"json",
             success: function (result) {
                 if (result.result == "OK") {
-                    if (result.classe == null)
-                        document.location.replace("/classi")
-                    else 
-                        document.location.replace("/home")
+                    closeAnimation()
+                    setInterval(function () {
+                        if (result.classe == null)
+                            document.location.replace("/classi")
+                        else 
+                            document.location.replace("/home")
+                    }, 1000)
                 }
             }
 	    })
@@ -85,6 +88,10 @@ function getCookie(name) {
     if (parts.length === 2) {
         return parts.pop().split(';').shift()
     }
+}
+
+function closeAnimation() {
+    $('body').addClass('closed');
 }
 
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */

@@ -57,7 +57,7 @@ def run_routes():
 
     @app.route('/classi', methods=['GET'])
     def route_classi():
-        return open(f"resources/index_pannellocontrollo.html").read()
+        return open(f"resources/index_classi.html").read()
 
     @app.route('/segreteria', methods=['GET'])
     def route_segreteria():

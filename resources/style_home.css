@@ -182,6 +182,7 @@ img.avatar {
   text-align: center;
   border-radius: 30px;
 }
+
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 #loader-wrapper .loader-section {
     position: fixed;
@@ -204,16 +205,23 @@ img.avatar {
 #loader {
     z-index: 1001; 
 }
-h1 {
-    color: #EEEEEE;
+
+/*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
+
+#closer-wrapper .closer-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #ffffff;
 }
-
-
-#content {
-    margin: 0 auto;
-    padding-bottom: 50px;
-    width: 80%;
-    max-width: 978px;
+ 
+#closer-wrapper .closer-section.section-left {
+    left: -52%;
+}
+ 
+#closer-wrapper .closer-section.section-right {
+    right: -52%;
 }
 
 .loaded #loader-wrapper .loader-section.section-left {
@@ -429,12 +437,52 @@ h1 {
     }
 }
 
+.closed #closer-wrapper .closer-section.section-left {
+    -webkit-transform: translateX(100%); 
+    -ms-transform: translateX(100%);  
+    transform: translateX(100%);  
+	-webkit-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+ 
+.closed #closer-wrapper .closer-section.section-right {
+    -webkit-transform: translateX(-100%);  
+    -ms-transform: translateX(-100%);  
+    transform: translateX(-100%);  
+	-webkit-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+}
+
+.closed #closer-wrapper {
+    visibility: visible;
+    z-index: 1000;
+}
+
+.closed #closer-wrapper .closer-section.section-right,
+.closed #closer-wrapper .closer-section.section-left {
+ 
+    -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+}
+
+#closer-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 input {
     -webkit-appearance: none;
 }
 
 select {
     -webkit-appearance: none;
+}
+
+.covered {
+    z-index: 2;
 }
 
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
