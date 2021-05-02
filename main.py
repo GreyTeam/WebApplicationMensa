@@ -4,7 +4,6 @@ from utilities import dates, control_panel
 
 # Setup server
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
 
 server_routes.setup_routes(app)
 server_routes.run_routes()
