@@ -1,2 +1,2 @@
 Flask==1.1.2
-XlsxWriter @ file:///tmp/build/80754af9/xlsxwriter_1602692860603/work
+XlsxWriter==1.4.5
