@@ -28,7 +28,7 @@ import flask
 import os
 import json
 from datetime import datetime
-from server import database_utilities, server_utilities, responses, users
+from server import database_utilities, server_utilities, responses, users, oauth
 from utilities import dates, prenotazioni, log, control_panel
 
 app: flask.Flask
@@ -159,7 +159,7 @@ def run_routes():
         } 
 
     @app.route("/registration", methods=['POST'])
-    def register():
+    def registration():
         if not server_utilities.header_exist("nome"):
             response = responses.missing_element_response("nome")
             log.log("MISSING", response["message"], server_utilities.get_headers_list())
@@ -349,6 +349,40 @@ def run_routes():
                 "result": "ERROR",
                 "message": "Resource doesn't exist in the server"
             }
+    
+    # V2
+    @app.route("/oauth/login", methods=["POST"])
+    def oauth_login():
+        body = flask.request.get_json(force=True)
+        try:
+
+            user = oauth.get_user(body["email"])
+            print(user)
+
+            if user != None:
+                return {
+                    "token": oauth.generate_oauth_token(user),
+                    "new_user": False
+                }, 200
+            else:
+                user = {
+                    "nome": body["nome"],
+                    "cognome": body["cognome"],
+                    "profile_pic": body["profile_pic"],
+                    "email": body["email"],
+                    "classe": None
+                }
+                oauth.insert_user(user)
+                user.pop("_id")
+                return {
+                    "token": oauth.generate_oauth_token(user),
+                    "new_user": True
+                }, 200
+
+        except KeyError as e:
+            return {
+                "error": str(e)
+            }, 200
 
     app.run(host="0.0.0.0", port=80)
         
