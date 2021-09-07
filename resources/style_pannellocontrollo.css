@@ -98,14 +98,14 @@ html {
 }
 /*Made by Davide Andreolli, Daniel Francisci, Gasperetti lorenzo, Devid Troka */
 .days div:hover:not(.today) {
-  background-color: #e66129;
-  border: 0.2rem solid #e66129;
+  background-color: #76b042;
+  border: 0.2rem solid #76b042;
   cursor: pointer;
 }
 
 .selected {
-  background-color: #e66129;
-  border: 0.2rem solid #e66129;
+  background-color: #76b042;
+  border: 0.2rem solid #76b042;
   cursor: pointer;
 }
 
@@ -114,6 +114,11 @@ html {
 }
 .next-date {
   opacity: 0.5;
+}
+
+.today {
+  background-color: #76b042;
+ 
 }
 
 body{										
@@ -126,9 +131,10 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment:fixed ;
-}
-
+    
+  }
 .box{
+	
   border:0;
   width: 500px;
   padding: 30px;

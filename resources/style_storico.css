@@ -14,10 +14,6 @@ body{
     -ms-touch-action: none;
 }
 
-a {
-    color: #e66129
-}
-
 .box{	
   border:0;
   width: auto;

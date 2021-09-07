@@ -350,6 +350,6 @@ def run_routes():
                 "message": "Resource doesn't exist in the server"
             }
 
-    app.run(host="0.0.0.0", port=443)
+    app.run(host="0.0.0.0")
         
 
